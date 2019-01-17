@@ -1,0 +1,12 @@
+set imap_user='seanbehan@trentu.ca'
+set imap_pass="`pass show email/seanbehan@trentu.ca`"
+set folder=imaps://imap.gmail.com/
+set from=$imap_user
+set smtp_url=smtps://$imap_user:$imap_pass@smtp.gmail.com
+
+source $HOME/.config/neomutt/global
+
+# global overrides
+unset record
+
+# vim: set syntax=config:

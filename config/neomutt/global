@@ -1,0 +1,25 @@
+set realname='Sean Behan'
+set spoolfile=+INBOX
+mailboxes =INBOX
+set header_cache = '~/.cache/neomutt'
+set message_cachedir = '~/.cache/neomutt'
+set certificate_file = '~/.config/neomutt/certificates'
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+set record = +Sent
+set use_from = yes
+set ssl_force_tls = yes
+set ssl_starttls = yes
+bind index G imap-fetch-mail
+source vimkeybinds
+# set sidebar_visible
+# set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set index_format="%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"
+set sort = reverse-threads
+set sort_aux = last-date-received
+set delete=yes
+set editor = `echo "\$EDITOR"`
+
+# vim: set syntax=config:
