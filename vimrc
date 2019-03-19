@@ -76,6 +76,8 @@
         noremap <C-h> :History<CR>
         noremap <C-b> :Buffers<CR>
         noremap <Leader><space> :nohlsearch<CR>
+        noremap <M-j> :tabprevious<CR>
+        noremap <M-k> :tabnext<CR>
     "
 "
     " plugin options
