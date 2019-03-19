@@ -10,6 +10,7 @@ set certificate_file = '~/.config/neomutt/certificates'
 unset imap_passive
 set imap_keepalive = 300
 set mail_check = 120
+set timeout=120
 set record = +Sent
 set use_from = yes
 set ssl_force_tls = yes
