@@ -1,3 +1,5 @@
+source vimkeybinds
+
 set realname='Sean Behan'
 set spoolfile=+INBOX
 mailboxes =INBOX
@@ -12,7 +14,6 @@ set use_from = yes
 set ssl_force_tls = yes
 set ssl_starttls = yes
 bind index G imap-fetch-mail
-source vimkeybinds
 # set sidebar_visible
 # set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
