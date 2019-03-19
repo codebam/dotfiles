@@ -26,6 +26,7 @@ alias gpg="gpg2"
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias vim="nvim"
 alias mutt="neomutt"
+alias sl="sl -l"
 
 source $HOME/.cargo/env
 
