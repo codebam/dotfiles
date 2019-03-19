@@ -22,6 +22,11 @@
     set noshowmode 
     set laststatus=0
     set foldmethod=indent
+    set autochdir
+    set hidden
+    set showmatch
+    set matchtime=3
+    set textwidth=80
 "
 
     " autocmds
