@@ -45,6 +45,7 @@
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
     call plug#end()
 "
     " display options
