@@ -23,6 +23,13 @@
     set laststatus=0
     set foldmethod=indent
 "
+
+    " autocmds
+    autocmd Filetype mail set textwidth=72
+    autocmd FileType html setlocal shiftwidth=2 tabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+"
+
     " plug
     call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
