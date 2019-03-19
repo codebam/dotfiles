@@ -1,4 +1,5 @@
 source vimkeybinds
+source dracula.muttrc
 
 set realname='Sean Behan'
 set spoolfile=+INBOX
