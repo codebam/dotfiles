@@ -42,3 +42,5 @@ export GOPATH=$HOME/.go
 
 complete -F _fzf_path_completion -o default -o bashdefault ag
 complete -F _fzf_dir_completion -o default -o bashdefault tree
+
+source $HOME/.fzfrc
