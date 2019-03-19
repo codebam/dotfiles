@@ -11,7 +11,7 @@ PATH="$HOME/.gem/ruby:$PATH"
 export PATH
 
 export PS1="\W 😎💻 "
-export TERMINAL="kitty:urxvt:xterm:gnome-terminal"
+# export TERMINAL="kitty"
 export EDITOR='nvim'
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
