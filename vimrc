@@ -71,7 +71,6 @@
             highlight GitGutterDelete guifg=#ff2222 guibg=<X> ctermfg=1
         "
         " remap
-        noremap <C-k> :close<CR>
         noremap <C-p> :Files<CR>
         noremap <C-h> :History<CR>
         noremap <C-b> :Buffers<CR>
