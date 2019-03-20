@@ -241,6 +241,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 exec redshift
 
 default_border pixel
+default_floating_border pixel
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
 gaps inner 15px
