@@ -8,25 +8,29 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/scott-rodgerson-375868-unsplash.jpg fill
+# output * bg ~/Pictures/ferdinand-stohr-149422-unsplash.jpg fill
+output * bg ~/Pictures/Wallpapers/RoseFractal-purple.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output HDMI-A-1 pos 0 0 res 1920x1080
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -35,10 +39,10 @@ output * bg ~/Pictures/scott-rodgerson-375868-unsplash.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock' \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -70,7 +74,7 @@ exec swayidle -w \
 
     # start your launcher
     # bindsym $mod+d exec $menu
-    bindsym $mod+d exec j4-dmenu-desktop
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -83,7 +87,8 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 #
 # Moving around:
 #
@@ -111,28 +116,39 @@ exec swayidle -w \
 #
 # Workspaces:
 #
+    set $ws1 "1:chat"
+    set $ws2 "2:web"
+    set $ws3 "3:school"
+    set $ws4 "4:code"
+    set $ws5 "5:media"
+    set $ws6 "6:vm"
+    set $ws7 "7:misc"
+    set $ws8 8
+    set $ws9 9
+    set $ws10 10
+
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws10
     # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -157,6 +173,7 @@ exec swayidle -w \
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
+    # disabled because I want this for dismissing notifications
 
     # move focus to the parent container
     bindsym $mod+a focus parent
@@ -197,38 +214,59 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# dracula theme
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #50fa7b
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    swaybar_command waybar
     position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    font pango:Fira Code Retina, FontAwesome 12
+    font pango:Fira Sans, FontAwesome 13
     status_command i3status-rs ~/.config/sway/status.toml
     hidden_state hide
     tray_output none
+    strip_workspace_numbers yes
 
     # colors {
     #     statusline #ffffff
     #     background #323232
     #     inactive_workspace #32323200 #32323200 #5c5c5c
     # }
+    # colors {
+    #     separator #666666
+    #     background #000000
+    #     statusline #dddddd
+    #     focused_workspace #0088CC #0088CC #ffffff
+    #     active_workspace #333333 #333333 #ffffff
+    #     inactive_workspace #333333 #333333 #888888
+    #     urgent_workspace #2f343a #900000 #ffffff
+    # }
     colors {
-        separator #666666
-        background #22222200
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
     }
 }
 
-# 
+#
 # User settings
 #
 input "2:7:SynPS/2_Synaptics_TouchPad" {
@@ -236,9 +274,18 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
+    pointer_accel 0.2
+    accel_profile adaptive
+}
+
+input "2:10:TPPS/2_Elan_TrackPoint" {
+    pointer_accel 1.0
+    accel_profile adaptive
 }
 
 exec redshift
+exec mako
+exec inactive-windows-transparency
 
 default_border pixel
 default_floating_border pixel
@@ -247,6 +294,7 @@ focus_follows_mouse no
 gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
+seat seat0 hide_cursor 1000
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
@@ -264,8 +312,10 @@ bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
 # mouse wheel changes audio volume
 
 bindsym $mod+n exec 'swaymsg "bar mode toggle"'
-bindsym $mod+p exec "swaylock -f -c 000000"
+bindsym $mod+p exec "sleep 0.2 && killall -SIGUSR1 swayidle"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
+bindsym Control+space exec "~/.local/bin/makoctl dismiss"
+bindsym $mod+Control+space exec "~/.local/bin/makoctl invoke"
 
 include /etc/sway/config.d/*

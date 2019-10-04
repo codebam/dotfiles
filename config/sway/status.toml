@@ -1,8 +1,8 @@
 [theme]
-name = "slick"
+name = "plain"
 [theme.overrides]
-idle_bg = "#000000"
-idle_fg = "#cccccc"
+idle_bg = "#2A2A36"
+idle_fg = "#F8F8F2"
 
 [icons]
 name = "awesome"

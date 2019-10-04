@@ -1,4 +1,6 @@
 #!/usr/bin/bash
 
-export MOZ_ENABLE_WAYLAND=1
-exec /usr/bin/firefox-nightly "$@"
+# export MOZ_ENABLE_WAYLAND=1
+export GDK_BACKEND=wayland
+exec "$HOME"/.local/bin/firefox-nightly
+# exec /usr/bin/firefox-nightly "$@"
