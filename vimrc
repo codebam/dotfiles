@@ -119,6 +119,7 @@
         \   '*': ['remove_trailing_lines', 'trim_whitespace'],
         \   'rust': ['rustfmt'],
         \   'c': ['clang-format'],
+        \   'go': ['goimports'],
         \   'cpp': ['clang-format'],
         \   'javascript': ['prettier', 'eslint'],
         \   'json': ['prettier', 'jq'],
@@ -128,6 +129,7 @@
         \}
         let g:ale_linters = {
         \   'rust': ['rls', 'cargo'],
+        \   'go': ['gofmt', 'golint', 'govet', 'gobuild'],
         \}
         let g:ale_echo_msg_error_str = 'E'
         let g:ale_echo_msg_warning_str = 'W'
