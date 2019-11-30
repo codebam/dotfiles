@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-# export MOZ_ENABLE_WAYLAND=1
+echo "$@" > "/home/codebam/.lasturl"
 export GDK_BACKEND=wayland
-exec "$HOME"/.local/bin/firefox-nightly
+exec "$HOME"/.firefox-nightly/firefox "$@"
+# exec "$HOME"/.local/bin/firefox-nightly
 # exec /usr/bin/firefox-nightly "$@"
