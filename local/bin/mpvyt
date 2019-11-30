@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "{ \"command\": [\"loadfile\", \"ytdl://ytsearch:$1\", \"append-play\"] }" | socat - /tmp/mpvsocket
