@@ -25,7 +25,7 @@ set $menu dmenu_path | wldash | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg ~/Pictures/ferdinand-stohr-149422-unsplash.jpg fill
-output * bg ~/Pictures/Wallpapers/ashim-d-silva-S2Q5mdOrrVc-unsplash.jpg fill
+output * bg ~/Pictures/Wallpapers/serey-kim-vUePu7hAYAQ-unsplash.jpg fill
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
 # Example configuration:
@@ -321,5 +321,6 @@ bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "~/.local/bin/makoctl dismiss"
 bindsym $mod+Control+space exec "~/.local/bin/makoctl invoke"
 bindsym $mod+o exec "~/.local/bin/pass-rofi"
+bindsym $mod+y exec "~/.local/bin/mpvyt-rofi"
 
 include /etc/sway/config.d/*
