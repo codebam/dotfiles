@@ -18,13 +18,14 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
+# set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
+set $menu dmenu_path | wldash | xargs swaymsg exec
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg ~/Pictures/ferdinand-stohr-149422-unsplash.jpg fill
-output * bg ~/Pictures/Wallpapers/RoseFractal-purple.png fill
+output * bg ~/Pictures/Wallpapers/ashim-d-silva-S2Q5mdOrrVc-unsplash.jpg fill
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
 # Example configuration:
@@ -33,6 +34,7 @@ output * bg ~/Pictures/Wallpapers/RoseFractal-purple.png fill
 output HDMI-A-1 pos 0 0 res 1920x1080
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 scale 1
 
 ### Idle configuration
 #
@@ -295,16 +297,17 @@ gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
 seat seat0 hide_cursor 1000
+seat seat0 xcursor_theme "La Capitaine"
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
 bindsym XF86AudioMute exec "amixer set Master toggle"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
-bindsym XF86MonBrightnessUp exec "light -A 2"
-bindsym XF86MonBrightnessDown exec "light -U 2"
-bindsym --whole-window $mod+Shift+button4 exec "light -A 2"
-bindsym --whole-window $mod+Shift+button5 exec "light -U 2"
+bindsym XF86MonBrightnessUp exec "light -A 1"
+bindsym XF86MonBrightnessDown exec "light -U 1"
+bindsym --whole-window $mod+Shift+button4 exec "light -A 1"
+bindsym --whole-window $mod+Shift+button5 exec "light -U 1"
 # mouse wheel changes brightness
 
 bindsym --whole-window $mod+button4 exec "amixer set Master 1%+ unmute"
@@ -317,5 +320,6 @@ bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "~/.local/bin/makoctl dismiss"
 bindsym $mod+Control+space exec "~/.local/bin/makoctl invoke"
+bindsym $mod+o exec "~/.local/bin/pass-rofi"
 
 include /etc/sway/config.d/*
