@@ -293,7 +293,7 @@ default_border pixel
 default_floating_border pixel
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
-gaps inner 15px
+# gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
 seat seat0 hide_cursor 1000
@@ -322,5 +322,8 @@ bindsym Control+space exec "~/.local/bin/makoctl dismiss"
 bindsym $mod+Control+space exec "~/.local/bin/makoctl invoke"
 bindsym $mod+o exec "~/.local/bin/pass-rofi"
 bindsym $mod+y exec "~/.local/bin/mpvyt-rofi"
+bindsym Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
+bindsym Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
+bindsym Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
 
 include /etc/sway/config.d/*
