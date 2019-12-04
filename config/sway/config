@@ -271,7 +271,7 @@ bar {
 #
 # User settings
 #
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "1739:0:Synaptics_TM3289-021" {
     dwt enabled
     tap enabled
     natural_scroll enabled
