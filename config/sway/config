@@ -1,3 +1,5 @@
+include /etc/sway/config.d/*
+
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -19,22 +21,46 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
-set $menu dmenu_path | wldash | xargs swaymsg exec
+set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg ~/Pictures/ferdinand-stohr-149422-unsplash.jpg fill
-output * bg ~/Pictures/Wallpapers/serey-kim-vUePu7hAYAQ-unsplash.jpg fill
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+#
+output * bg ~/Pictures/Wallpapers/scott-webb-aHhhdKUP77M-unsplash-horizontal.jpg fill
 #
 # Example configuration:
 #
+
+output eDP-1 {
+    scale 1
+    position 0 0
+    # transform 270
+}
+
+output DP-1 {
+    resolution 2560x1440
+    transform 270
+}
+
+output HDMI-A-1 {
+    # resolution 1920x1080
+    resolution 2560x1440
+    # position 1440 0 # don't uncomment this
+    transform 270
+}
+
+# disable the laptop display when the lid closes
+set $laptop eDP-1
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload lid:off output $laptop enable
+
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-output HDMI-A-1 pos 0 0 res 1920x1080
+# output HDMI-A-1 pos 0 0 res 1920x1080
+# output HDMI-A-1 pos 0 0 res 2560x1440
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 scale 1
 
 ### Idle configuration
 #
@@ -281,11 +307,12 @@ input "1739:0:Synaptics_TM3289-021" {
 }
 
 input "2:10:TPPS/2_Elan_TrackPoint" {
-    pointer_accel 1.0
+    pointer_accel 0.2
     accel_profile adaptive
 }
 
 exec redshift
+exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec mako
 exec inactive-windows-transparency
 
@@ -318,12 +345,11 @@ bindsym $mod+n exec 'swaymsg "bar mode toggle"'
 bindsym $mod+p exec "sleep 0.2 && killall -SIGUSR1 swayidle"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
-bindsym Control+space exec "~/.local/bin/makoctl dismiss"
-bindsym $mod+Control+space exec "~/.local/bin/makoctl invoke"
+bindsym Control+space exec "makoctl dismiss"
+bindsym $mod+Control+space exec "makoctl invoke"
 bindsym $mod+o exec "~/.local/bin/pass-rofi"
 bindsym $mod+y exec "~/.local/bin/mpvyt-rofi"
 bindsym Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
-
-include /etc/sway/config.d/*
+bindsym $mod+c exec killall -SIGUSR1 waybar
