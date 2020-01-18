@@ -16,7 +16,7 @@ export PATH
 # export PS1="\W "
 export PS1="\${PWD##*/} "
 # export TERMINAL="kitty"
-export EDITOR='nvim'
+export EDITOR='vim'
 
 export HISTSIZE=1000
 # export HISTFILESIZE=
@@ -28,7 +28,7 @@ export HISTSIZE=1000
 # User specific aliases and functions
 # alias gpg="gpg2"
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
-alias vim="nvim"
+# alias vim="nvim"
 alias mutt="neomutt"
 alias sl="sl -l"
 alias python="python3"
