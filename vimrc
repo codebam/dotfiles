@@ -25,6 +25,7 @@
     set noshowmode
     set laststatus=0
     set foldmethod=indent
+    set nofoldenable
     set autochdir
     set hidden
     set showmatch
@@ -60,9 +61,10 @@
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     else
-        Plug 'Shougo/deoplete.nvim'
-        Plug 'roxma/nvim-yarp'
-        Plug 'roxma/vim-hug-neovim-rpc'
+        " Plug 'Shougo/deoplete.nvim'
+        " Plug 'roxma/nvim-yarp'
+        " Plug 'roxma/vim-hug-neovim-rpc'
+        " commented out because this segfaults on musl
     endif
     call plug#end()
 "
