@@ -5,12 +5,19 @@
 [gpg]
 	program = gpg2
 [merge]
-  tool = vimdiff
+	tool = vimdiff
 [mergetool]
-  prompt = true
+	prompt = true
 [mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [difftool]
-  prompt = false
+	prompt = false
 [diff]
-  tool = vimdiff
+	tool = vimdiff
+[credential]
+	helper = store
+[sendemail]
+	smtpserver = mail.riseup.net
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = codebam@riseup.net
