@@ -28,7 +28,7 @@ set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
-output * bg ~/Pictures/Wallpapers/scott-webb-aHhhdKUP77M-unsplash-horizontal.jpg fill
+output * bg ~/Pictures/Wallpapers/ingmar-hoogerhoud-ghTxlvNwYsU-unsplash.jpg fill
 #
 # Example configuration:
 #
@@ -41,14 +41,14 @@ output eDP-1 {
 
 output DP-1 {
     resolution 2560x1440
-    transform 270
+    # transform 270
 }
 
 output HDMI-A-1 {
     # resolution 1920x1080
     resolution 2560x1440
     # position 1440 0 # don't uncomment this
-    transform 270
+    # transform 270
 }
 
 # disable the laptop display when the lid closes
