@@ -1,0 +1,7 @@
+#!/bin/sh
+
+: ${v:=4}
+ifconfig=https://ifconfig.co/json
+json_parser=jq
+
+curl -"$v" -s $ifconfig | "$json_parser"
