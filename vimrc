@@ -47,6 +47,9 @@
     Plug 'w0rp/ale'
     " Plug 'chriskempson/base16-vim'
     Plug 'dracula/vim'
+    Plug 'tomasr/molokai'
+    Plug 'nanotech/jellybeans.vim'
+    Plug 'sjl/badwolf'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -71,7 +74,7 @@
     " display options
         " colorscheme
         " colorscheme base16-default-dark
-        colorscheme dracula
+        colorscheme badwolf
         set background=dark
     "
         " highlight
@@ -121,6 +124,7 @@
         \   '*': ['remove_trailing_lines', 'trim_whitespace'],
         \   'rust': ['rustfmt'],
         \   'c': ['clang-format'],
+        \   'cs': ['uncrustify'],
         \   'go': ['goimports'],
         \   'cpp': ['clang-format'],
         \   'javascript': ['prettier', 'eslint'],
