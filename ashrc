@@ -1,0 +1,22 @@
+# paths
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export GOPATH=$HOME/.go
+# export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+# export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
+
+# misc exports
+export EDITOR=nvim
+export PAGER=less
+export LANG="en_US.UTF-8"
+export MOZ_ENABLE_WAYLAND=1
+export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
+
+# aliases
+alias vim=nvim
+alias sudo="meant doas"
+
+# gpg agent
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="/run/user/1000/gnupg/S.gpg-agent.ssh"
+gpg-connect-agent updatestartuptty /bye > /dev/null
