@@ -1,0 +1,16 @@
+set imap_user='_@seanbehan.dev'
+set imap_pass="`pass show email/_@seanbehan.dev`"
+set my_smtp_user='_@seanbehan.dev'
+set smtp_pass="$imap_pass"
+set folder="imaps://mail.cmpwn.com/"
+set from="$imap_user"
+set smtp_url="smtps://_@seanbehan.dev@mail.cmpwn.com:465/"
+
+set pgp_default_key='0x8D7FB2758E065E60'
+set pgp_sign_as='0x1271D17618DBC2A6'
+set pgp_use_gpg_agent=yes
+set crypt_use_gpgme=yes
+
+source $HOME/.config/neomutt/global
+
+# vim: set syntax=config:
