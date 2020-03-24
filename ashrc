@@ -16,6 +16,8 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
 # aliases
 alias vim=nvim
 alias sudo="meant doas"
+# alias ls="ls --color=auto"
+alias ls="exa"
 
 # gpg agent
 export GPG_TTY="$(tty)"
