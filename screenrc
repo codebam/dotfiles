@@ -1,0 +1,41 @@
+# colour settings
+# term xterm-256color
+truecolor on
+
+# erase background with current bg color
+defbce "on"
+
+# Allow bold colors - necessary for some reason
+attrcolor b ".I"
+
+# Tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Enables use of shift-PgUp and shift-PgDn
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+# detach client on hangup
+autodetach on
+
+# change directory to $PWD when opening a new window
+chdir
+
+# this should be default
+startup_message off
+
+# tab-completion flash in heading bar
+vbell off
+
+# keep scrollback n lines
+defscrollback 30000
+
+# custom status line
+hardstatus alwayslastline
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+
+# start with status line disabled
+hardstatus ignore
+
+# toggle status line
+bind f eval "hardstatus ignore"
+bind F eval "hardstatus alwayslastline"
