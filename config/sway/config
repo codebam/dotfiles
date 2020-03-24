@@ -21,14 +21,14 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
-set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
+set $menu dmenu_path | wofi | xargs swaymsg exec
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
-output * bg ~/Pictures/Wallpapers/ingmar-hoogerhoud-ghTxlvNwYsU-unsplash.jpg fill
+output * bg ~/Pictures/Wallpapers/9uptovbd2dm41.jpg fill
 #
 # Example configuration:
 #
@@ -41,7 +41,7 @@ output eDP-1 {
 
 output DP-1 {
     resolution 2560x1440
-    # transform 270
+    transform 270
 }
 
 output HDMI-A-1 {
@@ -326,6 +326,12 @@ hide_edge_borders smart
 seat seat0 hide_cursor 1000
 seat seat0 xcursor_theme "La Capitaine"
 
+# floating terminal
+# for_window [app_id="floating"] floating enable
+# bindsym $mod+i exec '$term & swaymsg "for_window [pid=${!}] floating enable"'
+bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec alacritty'
+bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
+
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
 bindsym XF86AudioMute exec "amixer set Master toggle"
@@ -349,6 +355,7 @@ bindsym Control+space exec "makoctl dismiss"
 bindsym $mod+Control+space exec "makoctl invoke"
 bindsym $mod+o exec "~/.local/bin/pass-rofi"
 bindsym $mod+y exec "~/.local/bin/mpvyt-rofi"
+bindsym $mod+Ctrl+Print exec wf-recorder -a -f rtmp://live-yto.twitch.tv/app/live_100607192_Y8CdRUQxGbTLCi6j6Uja4c8nowC8Cb -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
