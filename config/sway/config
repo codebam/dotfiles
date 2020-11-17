@@ -28,7 +28,7 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 #
-output * bg ~/Pictures/Wallpapers/9uptovbd2dm41.jpg fill
+output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
 # Example configuration:
 #
@@ -41,7 +41,7 @@ output eDP-1 {
 
 output DP-1 {
     resolution 2560x1440
-    transform 270
+    # transform 270
 }
 
 output HDMI-A-1 {
@@ -306,25 +306,52 @@ input "1739:0:Synaptics_TM3289-021" {
     accel_profile adaptive
 }
 
-input "2:10:TPPS/2_Elan_TrackPoint" {
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
     pointer_accel 0.2
     accel_profile adaptive
 }
 
+input "2:10:TPPS/2_Elan_TrackPoint" {
+    pointer_accel 0.7
+    accel_profile adaptive
+}
+
+input "1133:16466:Logitech_M545/M546" {
+    pointer_accel 0.8
+}
+# to get inputs use: swaymsg -t get_inputts
+
 exec redshift
-exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
+# exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec mako
-exec inactive-windows-transparency
+exec xrdb -load ~/.Xresources
+exec pipewire
+exec /usr/libexec/xdg-desktop-portal -r & xdg-desktop-portal-wlr -p BGRx
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adapta:dark'
+    # gsettings set $gnome-schema icon-theme 'Your icon theme'
+    gsettings set $gnome-schema cursor-theme 'Bibata_Ice'
+}
+# exec inactive-windows-transparency
 
 default_border pixel
 default_floating_border pixel
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
-# gaps inner 15px
+gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
 seat seat0 hide_cursor 1000
-seat seat0 xcursor_theme "La Capitaine"
+
+# load the configured cursor theme, change with lxappearance
+seat seat0 xcursor_theme default
 
 # floating terminal
 # for_window [app_id="floating"] floating enable

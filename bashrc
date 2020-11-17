@@ -34,7 +34,7 @@ alias sl="sl -l"
 alias python="python3"
 alias g="git"
 
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -46,8 +46,8 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 
 export GOPATH=$HOME/.go
 
-source /usr/share/fzf/shell/key-bindings.bash
-source ~/.fzf_completion.bash
+# source /usr/share/fzf/shell/key-bindings.bash
+# source ~/.fzf_completion.bash
 
 source $HOME/.fzfrc
 

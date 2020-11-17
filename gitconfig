@@ -21,3 +21,5 @@
 	smtpserverport = 587
 	smtpencryption = tls
 	smtpuser = codebam@riseup.net
+[pull]
+	ff = only

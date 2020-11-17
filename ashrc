@@ -2,6 +2,7 @@
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
+export PATH="$HOME/.npm-packages/bin:$PATH"
 export GOPATH="$HOME/.go"
 # export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 # export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
@@ -11,15 +12,28 @@ export EDITOR=nvim
 export PAGER=less
 export LANG="en_US.UTF-8"
 export MOZ_ENABLE_WAYLAND=1
-export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
+# export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GTK_THEME=Adapta:dark
+export XCURSOR_THEME=Bibata_Ice
 
 # aliases
 alias vim=nvim
 alias sudo="meant doas"
-# alias ls="ls --color=auto"
-alias ls="exa"
+alias ls="ls --color=auto"
+# alias ls="exa"
+
+# gnome-keyring
+eval $(gnome-keyring-daemon --start)
 
 # gpg agent
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/1000/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null

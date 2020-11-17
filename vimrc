@@ -33,23 +33,24 @@
     set textwidth=80
     set colorcolumn=80
     set cursorline
-"
+    "
 
     " autocmds
     autocmd Filetype mail setlocal textwidth=72 colorcolumn=72
     autocmd FileType html setlocal shiftwidth=2 tabstop=2
     autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
     autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
-"
+    "
 
     " plug
     call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
-    " Plug 'chriskempson/base16-vim'
+    Plug 'chriskempson/base16-vim'
     Plug 'dracula/vim'
     Plug 'tomasr/molokai'
     Plug 'nanotech/jellybeans.vim'
     Plug 'sjl/badwolf'
+    " Plug 'ghifarit53/tokyonight.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -61,6 +62,7 @@
     Plug 'tpope/vim-fugitive'
     Plug 'leafgarland/typescript-vim'
     Plug 'cespare/vim-toml'
+    Plug 'tomlion/vim-solidity'
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     else
@@ -73,8 +75,13 @@
 "
     " display options
         " colorscheme
-        " colorscheme base16-default-dark
-        colorscheme badwolf
+        colorscheme base16-default-dark
+        " colorscheme badwolf
+
+        " let g:tokyonight_style = 'storm' " available: night, storm
+        " let g:tokyonight_enable_italic = 1
+        " let g:tokyonight_disable_italic_comment = 1
+        " colorscheme tokyonight
         set background=dark
     "
         " highlight
@@ -127,7 +134,7 @@
         \   'cs': ['uncrustify'],
         \   'go': ['goimports'],
         \   'cpp': ['clang-format'],
-        \   'javascript': ['prettier', 'eslint'],
+        \   'javascript': ['eslint'],
         \   'json': ['prettier', 'jq'],
         \   'java': ['google_java_format'],
         \   'python': ['autopep8', 'black', 'add_blank_lines_for_python_control_statements'],
@@ -141,6 +148,7 @@
         let g:ale_echo_msg_warning_str = 'W'
         let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
         let g:ale_rust_rustfmt_options = '--edition 2018'
+        let g:ale_set_balloons = 1
     "
         " omnisharp
         let g:OmniSharp_timeout = 5
