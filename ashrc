@@ -23,7 +23,7 @@ export XCURSOR_THEME=Bibata_Ice
 
 # aliases
 alias vim=nvim
-alias sudo="meant doas"
+# alias sudo="meant doas"
 alias ls="ls --color=auto"
 # alias ls="exa"
 
