@@ -9,4 +9,4 @@ hash=$(ipfs add | head -n1 | awk '{print $2}')
 printf 'https://ipfs.io/ipfs/%s' "$hash"
 
 # pin on my vps
-printf 'ipfs pin add %s' "$hash" | ssh -T "$ssh_login"
+printf 'screen -d -m ipfs pin add %s' "$hash" | ssh -T "$ssh_login"
