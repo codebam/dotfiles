@@ -8,7 +8,7 @@ export GOPATH="$HOME/.go"
 # export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # misc exports
-export EDITOR=nvim
+export EDITOR=vim
 export PAGER=less
 export LANG="en_US.UTF-8"
 export MOZ_ENABLE_WAYLAND=1
@@ -22,13 +22,12 @@ export GTK_THEME=Adapta:dark
 export XCURSOR_THEME=Bibata_Ice
 
 # aliases
-alias vim=nvim
 alias sudo="meant doas"
 alias ls="ls --color=auto"
 # alias ls="exa"
 
 # gnome-keyring
-eval $(gnome-keyring-daemon --start)
+# eval $(gnome-keyring-daemon --start)
 
 # gpg agent
 unset SSH_AGENT_PID
