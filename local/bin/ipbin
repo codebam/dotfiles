@@ -1,0 +1,12 @@
+#!/bin/sh
+ssh_login="ipfs@seanb.dev"
+
+# pin locally
+hash=$(ipfs add | head -n1 | awk '{print $2}')
+
+# print the link to share
+# this is done first because the next step might take a while
+printf 'https://ipfs.io/ipfs/%s' "$hash"
+
+# pin on my vps
+printf 'screen -d -m ipfs pin add %s' "$hash" | ssh -T "$ssh_login"

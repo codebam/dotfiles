@@ -22,7 +22,6 @@ export GTK_THEME=Adapta:dark
 export XCURSOR_THEME=Bibata_Ice
 
 # aliases
-alias sudo="meant doas"
 alias ls="ls --color=auto"
 # alias ls="exa"
 
