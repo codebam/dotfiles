@@ -1,7 +1,7 @@
 [user]
 	email = codebam@riseup.net
 	name = Sean Behan
-	signingkey = 0x1271D17618DBC2A6
+	signingkey = F9BC985B3BF972C7
 [gpg]
 	program = gpg2
 [merge]
@@ -23,3 +23,5 @@
 	smtpuser = codebam@riseup.net
 [pull]
 	ff = only
+[commit]
+	gpgsign = true
