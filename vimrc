@@ -44,20 +44,18 @@
 
     " plug
     call plug#begin('~/.vim/plugged')
-    Plug 'w0rp/ale'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'chriskempson/base16-vim'
     Plug 'dracula/vim'
     Plug 'tomasr/molokai'
     Plug 'nanotech/jellybeans.vim'
     Plug 'sjl/badwolf'
-    " Plug 'ghifarit53/tokyonight.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
     Plug 'tpope/vim-surround'
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'junegunn/fzf.vim'
-    " Plug 'Shougo/denite.nvim'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'leafgarland/typescript-vim'
