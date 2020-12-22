@@ -13,7 +13,6 @@
     set shiftwidth=4
     set smarttab
     set nowrap
-    set fillchars+=vert:│
     set completeopt=longest,menuone,preview
     set previewheight=5
     set wildmode=longest,list,full
@@ -156,5 +155,8 @@
 
         " deoplete
         let g:deoplete#enable_at_startup = 1
+
+        " coc.vim
+        let g:coc_disable_startup_warning = 1
     "
 "
