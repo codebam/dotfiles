@@ -15,7 +15,7 @@ export PATH
 
 # export PS1="\W 😎💻 "
 # export PS1="\W "
-export PS1="\${PWD##*/} "
+# export PS1="\${PWD##*/} "
 # export TERMINAL="kitty"
 export EDITOR='vim'
 
@@ -34,6 +34,7 @@ alias mutt="neomutt"
 alias sl="sl -l"
 alias python="python3"
 alias g="git"
+alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
 
 # source $HOME/.cargo/env
 
@@ -66,3 +67,4 @@ source $HOME/.fzfrc
 # fi
 # unset __conda_setup
 # <<< conda initialize <<<
+source "$HOME/.cargo/env"
