@@ -149,8 +149,8 @@ exec swayidle -w \
     set $ws3 "3:school"
     set $ws4 "4:code"
     set $ws5 "5:media"
-    set $ws6 "6:vm"
-    set $ws7 "7:misc"
+    set $ws6 "6:game"
+    set $ws7 "7:vm"
     set $ws8 8
     set $ws9 9
     set $ws10 10
