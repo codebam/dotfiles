@@ -208,3 +208,5 @@ focus_follows_mouse no
 gaps inner 15
 smart_gaps on
 hide_edge_borders smart
+
+exec --no-startup-id nitrogen --restore
