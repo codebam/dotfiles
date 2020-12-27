@@ -335,9 +335,9 @@ exec /usr/libexec/xdg-desktop-portal -r & xdg-desktop-portal-wlr -p BGRx
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adapta:dark'
+    gsettings set $gnome-schema gtk-theme 'WhiteSur-dark-solid'
     # gsettings set $gnome-schema icon-theme 'Your icon theme'
-    gsettings set $gnome-schema cursor-theme 'Bibata_Ice'
+    gsettings set $gnome-schema cursor-theme 'Breeze Chameleon Dark'
 }
 # exec inactive-windows-transparency
 
