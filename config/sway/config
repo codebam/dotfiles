@@ -327,7 +327,6 @@ input "1133:16466:Logitech_M545/M546" {
 # to get inputs use: swaymsg -t get_inputts
 
 exec gammastep
-# exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec mako
 exec xrdb -load ~/.Xresources
 exec pipewire
