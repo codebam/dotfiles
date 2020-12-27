@@ -336,8 +336,8 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'WhiteSur-dark-solid'
-    # gsettings set $gnome-schema icon-theme 'Your icon theme'
-    gsettings set $gnome-schema cursor-theme 'Breeze Chameleon Dark'
+    gsettings set $gnome-schema icon-theme 'Breeze Chameleon Dark'
+    gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
 }
 # exec inactive-windows-transparency
 
