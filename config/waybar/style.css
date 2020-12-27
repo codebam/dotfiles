@@ -1,20 +1,21 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Noto Sans";
-    font-size: 14px;
+    font-family: "Nimbus Sans";
+    font-size: 1em;
     min-height: 0;
 }
 
 window#waybar {
     /* background: transparent; */
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
+    background: rgba(255, 255, 255, 0);
+    color: black;
+    text-shadow: 1px 1px 2px white;
 }
 
 #window {
     font-weight: bold;
-    font-family: "Noto Sans";
+    font-family: "Nimbus Sans";
 }
 /*
 #workspaces {
@@ -25,13 +26,15 @@ window#waybar {
 #workspaces button {
     padding: 0 5px;
     background: transparent;
-    color: white;
-    border-top: 2px solid transparent;
+    color: black;
+    border-top: 3px solid transparent;
+    text-shadow: 1px 1px 2px white;
 }
 
 #workspaces button.focused {
-    color: #50fa7b;
-    border-top: 2px solid #50fa7b;
+    color: white;
+    border-top: 3px solid white;
+    text-shadow: 1px 1px 2px black;
 }
 
 #mode {
