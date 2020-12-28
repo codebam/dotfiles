@@ -134,54 +134,38 @@ font:
 draw_bold_text_with_bright_colors: true
 
 colors:
-  # COLORSCHEME: horizon-dark.yaml
+  # COLORSCHEME: one_dark.yaml
+  # Default colors
   primary:
-    background: '0x1c1e26'
-    foreground: '0xe0e0e0'
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
 
   # Normal colors
   normal:
-    black: '0x16161c'
-    red: '0xe95678'
-    green: '0x29d398'
-    yellow: '0xfab795'
-    blue: '0x26bbd9'
-    magenta: '0xee64ac'
-    cyan: '0x59e1e3'
-    white: '0xd5d8da'
+    black: '0x1e2127'
+    red: '0xe06c75'
+    green: '0x98c379'
+    yellow: '0xd19a66'
+    blue: '0x61afef'
+    magenta: '0xc678dd'
+    cyan: '0x56b6c2'
+    white: '0xabb2bf'
 
   # Bright colors
   bright:
-    black: '0x5b5858'
-    red: '0xec6a88'
-    green: '0x3fdaa4'
-    yellow: '0xfbc3a7'
-    blue: '0x3fc4de'
-    magenta: '0xf075b5'
-    cyan: '0x6be4e6'
-    white: '0xd5d8da'
+    black: '0x5c6370'
+    red: '0xe06c75'
+    green: '0x98c379'
+    yellow: '0xd19a66'
+    blue: '0x61afef'
+    magenta: '0xc678dd'
+    cyan: '0x56b6c2'
+    white: '0xffffff'
+  cursor:
+    text: '0xd8d8d8'
+    cursor: '0xd8d8d8'
 
-# Visual Bell
-#
-# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
-# rung, the terminal background will be set to white and transition back to the
-# default background color. You can control the rate of this transition by
-# setting the `duration` property (represented in milliseconds). You can also
-# configure the transition function by setting the `animation` property.
-#
-# Values for `animation`:
-#   - Ease
-#   - EaseOut
-#   - EaseOutSine
-#   - EaseOutQuad
-#   - EaseOutCubic
-#   - EaseOutQuart
-#   - EaseOutQuint
-#   - EaseOutExpo
-#   - EaseOutCirc
-#   - Linear
-#
-# Specifying a `duration` of `0` will disable the visual bell.
+  # Normal colors
 bell:
   animation: EaseOutExpo
   duration: 0
