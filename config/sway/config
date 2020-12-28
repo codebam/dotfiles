@@ -243,13 +243,15 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# dracula theme
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #50fa7b
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+include colorscheme
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
 
 #
 # Status Bar:
@@ -268,30 +270,17 @@ bar {
     tray_output none
     strip_workspace_numbers yes
 
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
-    # colors {
-    #     separator #666666
-    #     background #000000
-    #     statusline #dddddd
-    #     focused_workspace #0088CC #0088CC #ffffff
-    #     active_workspace #333333 #333333 #ffffff
-    #     inactive_workspace #333333 #333333 #888888
-    #     urgent_workspace #2f343a #900000 #ffffff
-    # }
     colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
+        background $base00
+        separator  $base01
+        statusline $base04
 
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
     }
 }
 
