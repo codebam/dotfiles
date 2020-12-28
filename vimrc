@@ -44,11 +44,7 @@
     " plug
     call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'chriskempson/base16-vim'
-    Plug 'dracula/vim'
-    Plug 'tomasr/molokai'
-    Plug 'nanotech/jellybeans.vim'
-    Plug 'sjl/badwolf'
+    Plug 'joshdick/onedark.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -72,7 +68,7 @@
 "
     " display options
         " colorscheme
-        colorscheme jellybeans
+        colorscheme onedark
         set background=dark
     "
         " highlight
