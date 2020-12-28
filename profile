@@ -8,7 +8,6 @@ export PATH
 export EDITOR='vim'
 export PAGER=less
 export GOPATH=$HOME/.go
-export LANG="en_US.UTF-8"
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM=wayland
