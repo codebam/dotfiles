@@ -72,7 +72,7 @@
 "
     " display options
         " colorscheme
-        colorscheme base16-default-dark
+        colorscheme jellybeans
         " colorscheme badwolf
 
         " let g:tokyonight_style = 'storm' " available: night, storm
