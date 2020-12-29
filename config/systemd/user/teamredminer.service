@@ -1,0 +1,8 @@
+[Unit]
+Description=Ethereum Miner
+
+[Service]
+ExecStart=/usr/bin/toolbox run /var/home/codebam/.local/bin/teamredminer -a ethash -o stratum+ssl://us1.ethermine.org:5555 -u 0xE0847852Db3215C1a5dcf0f78FB032cb61a89732
+
+[Install]
+WantedBy=default.target

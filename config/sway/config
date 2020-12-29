@@ -64,13 +64,10 @@ bindswitch --reload lid:off output $laptop enable
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-#
-# Example configuration:
-#
 exec swayidle -w \
-         timeout 300 'swaylock' \
+         timeout 300 'swaylock & systemctl --user start teamredminer' \
          timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+         resume 'swaymsg "output * dpms on" & systemctl --user stop teamredminer' \
          before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
