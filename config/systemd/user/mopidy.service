@@ -1,0 +1,7 @@
+[Unit]
+Description=Mopidy
+
+[Service]
+ExecStart=/usr/bin/toolbox run mopidy
+[Install]
+WantedBy=default.target
