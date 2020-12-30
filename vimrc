@@ -34,6 +34,8 @@
     set textwidth=80
     set colorcolumn=80
     set cursorline
+    set undofile
+    set undodir=$HOME/.vim/undodir
     "
 
     " autocmds
