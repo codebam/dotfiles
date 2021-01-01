@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export ipfs_staging=$HOME/.ipfs/staging
+export ipfs_data=$HOME/.ipfs
+
+podman run -d --privileged --init \
+        --restart unless-stopped \
+        --name ipfs-container \
+        -v $ipfs_staging:/export \
+        -v $ipfs_data:/data/ipfs \
+        -w /export \
+        -p 4001:4001 \
+        -p 127.0.0.1:8080:8080 \
+        -p 127.0.0.1:5001:5001 \
+        ipfs/go-ipfs:latest
