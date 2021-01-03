@@ -1,21 +1,21 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Nimbus Sans";
+    font-family: "Fira Code";
     font-size: 1em;
     min-height: 0;
 }
 
 window#waybar {
     /* background: transparent; */
-    background: rgba(255, 255, 255, 0);
-    color: black;
-    text-shadow: 1px 1px 2px white;
+    background: rgba(30, 33, 39, 0.85);
+    color: #abb2bf;
+    border-bottom: 2px solid #353b45;
 }
 
 #window {
     font-weight: bold;
-    font-family: "Nimbus Sans";
+    font-family: "Fira Code";
 }
 /*
 #workspaces {
@@ -24,17 +24,15 @@ window#waybar {
 */
 
 #workspaces button {
-    padding: 0 5px;
+    color: #abb2bf;
+    padding: 0 10px;
     background: transparent;
-    color: black;
-    border-top: 3px solid transparent;
-    text-shadow: 1px 1px 2px white;
 }
 
 #workspaces button.focused {
     color: white;
-    border-top: 3px solid white;
-    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    border-bottom: 2px solid #61afef;
 }
 
 #mode {
