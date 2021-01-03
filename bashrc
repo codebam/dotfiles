@@ -25,7 +25,7 @@ export HISTSIZE=1000
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias g="git"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
-alias reddit="pipx run ttrv"
+alias reddit="ttrv"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
