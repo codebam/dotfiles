@@ -6,6 +6,7 @@ window {
 #input {
 	margin: 5px;
 	background-color: rgba(30,33,39,0.85);
+	box-shadow: none;
 }
 
 #inner-box {
@@ -35,4 +36,8 @@ window {
 
 #entry:selected #text {
 	color: white;
+}
+
+.right {
+	color: transparent;
 }
