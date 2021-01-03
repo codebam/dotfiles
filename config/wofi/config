@@ -1,3 +1,7 @@
 show=drun
 dmenu=true
 insensitive=true
+prompt=
+width=25%
+lines=5
+location=top

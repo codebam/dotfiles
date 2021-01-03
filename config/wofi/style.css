@@ -1,0 +1,38 @@
+window {
+	margin: 5px;
+	background-color: rgba(0,0,0,0);
+}
+
+#input {
+	margin: 5px;
+	background-color: rgba(30,33,39,0.85);
+}
+
+#inner-box {
+	border-radius: 3px 3px 3px 3px;
+	background-color: rgba(30,33,39,0.85);
+	border 1px solid #404040;
+}
+
+#outer-box {
+	margin: 5px;
+}
+
+#scroll {
+	margin: 5px;
+}
+
+#text {
+	font-family: Fira Code;
+	margin: 5px;
+	color: #abb2bf;
+} 
+
+#entry:selected {
+	border-radius: 2px;
+	background-color: #61afef;
+}
+
+#entry:selected #text {
+	color: white;
+}
