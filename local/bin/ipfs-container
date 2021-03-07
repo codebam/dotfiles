@@ -3,11 +3,11 @@
 export ipfs_staging=$HOME/.ipfs/staging
 export ipfs_data=$HOME/.ipfs
 
-podman run -d --privileged --init \
+podman run -d --init \
         --restart unless-stopped \
         --name ipfs-container \
-        -v $ipfs_staging:/export \
-        -v $ipfs_data:/data/ipfs \
+        -v $ipfs_staging:/export:z \
+        -v $ipfs_data:/data/ipfs:z \
         -w /export \
         -p 4001:4001 \
         -p 127.0.0.1:8080:8080 \
