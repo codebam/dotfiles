@@ -27,7 +27,7 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg $HOME/Pictures/Wallpapers/jendra-bayu-WIVhqe1QIoU-unsplash.jpg fill
+output * bg /var/home/codebam/Pictures/Wallpapers/joakim-honkasalo-ssvjJLB6wIw-unsplash.jpg fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
@@ -67,7 +67,7 @@ bindswitch --reload lid:off output $laptop enable
 exec swayidle -w \
          timeout 300 'swaylock & systemctl --user start teamredminer' \
          timeout 600 'swaymsg "output * dpms off"' \
-         resume 'swaymsg "output * dpms on" & systemctl --user stop teamredminer' \
+         resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -143,7 +143,7 @@ exec swayidle -w \
 # Workspaces:
 #
     set $ws1 "1:💬"
-    set $ws2 "2:🔗"
+    set $ws2 "2:🌐"
     set $ws3 "3:📘"
     set $ws4 "4:👨‍💻"
     set $ws5 "5:📺"
@@ -334,7 +334,8 @@ focus_follows_mouse no
 gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
-seat seat0 hide_cursor 1000
+# seat seat0 hide_cursor 1000
+default_orientation vertical
 
 # load the configured cursor theme, change with lxappearance
 seat seat0 xcursor_theme default
