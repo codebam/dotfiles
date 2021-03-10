@@ -5,3 +5,5 @@ prompt=
 width=25%
 lines=5
 location=top
+hide_scroll=true
+term=alacritty
