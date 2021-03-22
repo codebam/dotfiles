@@ -25,3 +25,8 @@
 	ff = only
 [commit]
 	gpgsign = true
+[sendemail]
+	smtpserver = mail.riseup.net
+	smtpuser = codebam
+	smtpencryption = tls
+	smtpserverport = 587
