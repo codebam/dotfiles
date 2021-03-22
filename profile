@@ -5,7 +5,7 @@ PATH="$HOME/.cabal/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.npm-packages/bin:$PATH"
 export PATH
-export EDITOR='vim'
+export EDITOR='nvim'
 export PAGER=less
 export GOPATH=$HOME/.go
 export XDG_CURRENT_DESKTOP=sway
