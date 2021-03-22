@@ -1,2 +1,2 @@
 *.swp
-config/tmux/plugins
+tmux/plugins
