@@ -32,8 +32,8 @@
     set showmatch
     set matchtime=3
     set textwidth=80
-    set colorcolumn=80
-    set cursorline
+    " set colorcolumn=80
+    " set cursorline
     set undofile
     set undodir=$HOME/.vim/undodir
     "
@@ -48,7 +48,7 @@
     " plug
     call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'joshdick/onedark.vim'
+    Plug 'altercation/vim-colors-solarized'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -64,11 +64,12 @@
 "
     " display options
         " colorscheme
-        colorscheme onedark
         set background=dark
+        colorscheme solarized
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
+            highlight clear SignColumn
         "
         " remap
         noremap <C-p> :Files<CR>
