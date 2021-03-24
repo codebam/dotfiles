@@ -22,8 +22,10 @@ export HISTSIZE=1000
 
 # User specific aliases and functions
 # alias gpg="gpg2"
-alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
+alias e=$EDITOR
 alias g="git"
+
+alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
 alias reddit="ttrv"
 
