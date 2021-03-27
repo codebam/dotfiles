@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 grim /tmp/grim-screenshot.png &&
-0x0 < /tmp/grim-screenshot.png | wl-copy
+x0 < /tmp/grim-screenshot.png | wl-copy
