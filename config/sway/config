@@ -17,7 +17,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
@@ -27,18 +27,16 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /var/home/codebam/Pictures/Wallpapers/joakim-honkasalo-ssvjJLB6wIw-unsplash.jpg fill
+output * bg /var/home/codebam/Downloads/fedora-solarized.png fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
 # Example configuration:
 #
 
-# output eDP-1 {
-#     scale 1
-#     position 0 0
-#     # transform 270
-# }
+output eDP-1 {
+    scale 1.5
+}
 
 # output DP-1 {
 #     resolution 2560x1440
@@ -293,7 +291,8 @@ input "1739:0:Synaptics_TM3289-021" {
     accel_profile flat
 }
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+# input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "1739:0:Synaptics_TM3289-021" {
     dwt enabled
     tap enabled
     natural_scroll enabled
@@ -310,13 +309,14 @@ input "2:10:TPPS/2_Elan_TrackPoint" {
 input "1133:16466:Logitech_M545/M546" {
     pointer_accel 0.8
 }
-# to get inputs use: swaymsg -t get_inputts
+# to get inputs use: swaymsg -t get_inputs
 
 exec gammastep
 exec mako
 exec xrdb -load ~/.Xresources
 exec pipewire
-exec /usr/libexec/xdg-desktop-portal -r & xdg-desktop-portal-wlr -p BGRx
+exec /usr/libexec/xdg-desktop-portal -r
+exec /usr/libexec/xdg-desktop-portal-wlr -r
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -343,7 +343,7 @@ seat seat0 xcursor_theme default
 # floating terminal
 # for_window [app_id="floating"] floating enable
 # bindsym $mod+i exec '$term & swaymsg "for_window [pid=${!}] floating enable"'
-bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec alacritty'
+bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
 bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
