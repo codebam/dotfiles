@@ -49,17 +49,17 @@
     call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'altercation/vim-colors-solarized'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm i'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-fugitive'
-    Plug 'leafgarland/typescript-vim'
     Plug 'cespare/vim-toml'
     Plug 'tomlion/vim-solidity'
+    Plug 'leafgarland/typescript-vim'
     call plug#end()
 "
     " display options
