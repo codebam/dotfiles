@@ -1,102 +1,79 @@
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "Fira Code";
-    font-size: 12px;
-    min-height: 0;
+	font-size: 7pt;
+	font-family: 'Fira Code';
 }
 
 window#waybar {
-    /* background: transparent; */
-    background: rgba(30, 33, 39, 0.85);
-    color: #abb2bf;
-    border-bottom: 2px solid #353b45;
+	background: #073642;
+	color: #fdf6e3;
 }
 
-#window {
-    font-weight: bold;
-    font-family: "Fira Code";
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+	color: #002b36;
 }
-/*
-#workspaces {
-    padding: 0 5px;
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	color: #073642;
+	background: #002b36;
 }
-*/
+
+#workspaces,
+#clock.1,
+#clock.2,
+#clock.3,
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#battery,
+#disk,
+#tray {
+	background: #002b36;
+}
 
 #workspaces button {
-    color: #abb2bf;
-    padding: 0 10px;
-    background: transparent;
+	padding: 0 2px;
+	color: #fdf6e3;
 }
-
 #workspaces button.focused {
-    color: white;
-    font-weight: bold;
-    border-bottom: 2px solid #61afef;
+	color: #268bd2;
 }
-
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
 }
-
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-    padding: 0 3px;
-    margin: 0 2px;
-}
-
-#clock {
-    font-weight: bold;
-}
-
-#battery {
-}
-
-#battery icon {
-    color: red;
-}
-
-#battery.charging {
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
-}
-
-#battery.warning:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#cpu {
-}
-
-#memory {
-}
-
-#network {
-}
-
-#network.disconnected {
-    background: #f53c3c;
+#workspaces button:hover {
+	background: #002b36;
+	border: #002b36;
+	padding: 0 3px;
 }
 
 #pulseaudio {
+	color: #268bd2;
+}
+#network {
+	color: #fdf6e3;
+}
+#memory {
+	color: #2aa198;
+}
+#cpu {
+	color: #6c71c4;
+}
+#battery {
+	color: #859900;
+}
+#disk {
+	color: #b58900;
 }
 
-#pulseaudio.muted {
-}
-
-#custom-spotify {
-    color: rgb(102, 220, 105);
-}
-
-#tray {
+#clock,
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#battery,
+#disk {
+	padding: 0 10px;
 }

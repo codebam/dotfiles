@@ -18,6 +18,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
+font pango:Fira Code, FontAwesome 7
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
@@ -63,7 +64,7 @@ bindswitch --reload lid:off output $laptop enable
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock & systemctl --user start teamredminer' \
+         timeout 300 'swaylock' \
          timeout 600 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock'
@@ -140,13 +141,13 @@ exec swayidle -w \
 #
 # Workspaces:
 #
-    set $ws1 "1:💬"
-    set $ws2 "2:🌐"
-    set $ws3 "3:📘"
-    set $ws4 "4:👨‍💻"
-    set $ws5 "5:📺"
-    set $ws6 "6:🎮"
-    set $ws7 "7:💿"
+    set $ws1 1
+    set $ws2 2
+    set $ws3 3
+    set $ws4 4
+    set $ws5 5
+    set $ws6 6
+    set $ws7 7
     set $ws8 8
     set $ws9 9
     set $ws10 10
@@ -311,7 +312,7 @@ input "1133:16466:Logitech_M545/M546" {
 }
 # to get inputs use: swaymsg -t get_inputs
 
-exec_always gammastep -l $(cat ~/.config/latlong)
+exec gammastep -l $(cat ~/.config/latlong)
 exec mako
 exec xrdb -load ~/.Xresources
 exec pipewire
@@ -321,9 +322,9 @@ exec /usr/libexec/xdg-desktop-portal-wlr -r
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'WhiteSur-dark-solid'
-    gsettings set $gnome-schema icon-theme 'Breeze Chameleon Dark'
-    gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
+    gsettings set $gnome-schema gtk-theme 'Adwaita Dark'
+    # gsettings set $gnome-schema icon-theme 'Breeze Chameleon Dark'
+    # gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
 }
 # exec inactive-windows-transparency
 
@@ -364,7 +365,7 @@ bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
 # mouse wheel changes audio volume
 
 bindsym $mod+n exec 'swaymsg "bar mode toggle"'
-bindsym $mod+p exec "sleep 0.2 && systemctl --user start teamredminer & killall -SIGUSR1 swayidle"
+bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "makoctl dismiss"
