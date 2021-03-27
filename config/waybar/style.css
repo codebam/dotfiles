@@ -5,7 +5,7 @@
 
 window#waybar {
 	background: #073642;
-	color: #fdf6e3;
+	color: #93a1a1;
 }
 
 #custom-right-arrow-dark,
@@ -34,7 +34,7 @@ window#waybar {
 
 #workspaces button {
 	padding: 0 2px;
-	color: #fdf6e3;
+	color: #93a1a1;
 }
 #workspaces button.focused {
 	color: #268bd2;
@@ -53,7 +53,7 @@ window#waybar {
 	color: #268bd2;
 }
 #network {
-	color: #fdf6e3;
+	color: #93a1a1;
 }
 #memory {
 	color: #2aa198;
