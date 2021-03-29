@@ -1,42 +1,47 @@
 window {
-	margin: 5px;
+	margin: 4px;
 	background-color: rgba(0,0,0,0);
 }
 
 #input {
-	margin: 5px;
-	background-color: rgba(30,33,39,0.85);
+	margin: 4px;
+	color: #abb2bf;
+	background-color: #282c34;
 	box-shadow: none;
+	border: none;
 }
 
 #inner-box {
-	border-radius: 3px 3px 3px 3px;
-	background-color: rgba(30,33,39,0.85);
-	border 1px solid #404040;
+	border-radius: 4px 4px 4px 4px;
+	background-color: #282c34;
+	border 1px solid #353b45;
 }
 
 #outer-box {
-	margin: 5px;
+	margin: 4px;
 }
 
 #scroll {
-	margin: 5px;
+	margin: 4px;
 }
 
+#entry,
 #text {
 	font-family: Fira Code;
 	font-size: 9pt;
-	margin: 5px;
+	margin: 4px;
 	color: #abb2bf;
-} 
+	outline-style: none;
+}
 
 #entry:selected {
+	color: #61afef;
 	border-radius: 2px;
-	background-color: #61afef;
+	background-color: inherit;
 }
 
 #entry:selected #text {
-	color: white;
+	color: #61afef;
 }
 
 .right {
