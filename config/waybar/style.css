@@ -1,21 +1,21 @@
 * {
-	font-size: 7pt;
+	font-size: 9pt;
 	font-family: 'Fira Code';
 }
 
 window#waybar {
-	background: #073642;
-	color: #93a1a1;
+	background: #353b45;
+	color: #abb2bf;
 }
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-	color: #002b36;
+	color: #282c34;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-	color: #073642;
-	background: #002b36;
+	color: #353b45;
+	background: #282c34;
 }
 
 #workspaces,
@@ -29,43 +29,43 @@ window#waybar {
 #battery,
 #disk,
 #tray {
-	background: #002b36;
+	background: #282c34;
 }
 
 #workspaces button {
 	padding: 0 2px;
-	color: #93a1a1;
+	color: #abb2bf;
 }
 #workspaces button.focused {
-	color: #268bd2;
+	color: #61afef;
 }
 #workspaces button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
 #workspaces button:hover {
-	background: #002b36;
-	border: #002b36;
+	background: #282c34;
+	border: #282c34;
 	padding: 0 3px;
 }
 
 #pulseaudio {
-	color: #268bd2;
+	color: #61afef;
 }
 #network {
-	color: #93a1a1;
+	color: #abb2bf;
 }
 #memory {
-	color: #2aa198;
+	color: #56b6c2;
 }
 #cpu {
-	color: #6c71c4;
+	color: #c678dd;
 }
 #battery {
-	color: #859900;
+	color: #98c379;
 }
 #disk {
-	color: #b58900;
+	color: #e5c07b;
 }
 
 #clock,
