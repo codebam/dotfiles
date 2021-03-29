@@ -48,7 +48,7 @@
     " plug
     call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'altercation/vim-colors-solarized'
+    Plug 'joshdick/onedark.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm i'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -65,7 +65,7 @@
     " display options
         " colorscheme
         set background=dark
-        colorscheme solarized
+        colorscheme onedark
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
