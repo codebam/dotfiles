@@ -60,6 +60,7 @@
     Plug 'cespare/vim-toml'
     Plug 'tomlion/vim-solidity'
     Plug 'leafgarland/typescript-vim'
+    Plug 'dense-analysis/ale'
     call plug#end()
 "
     " display options
@@ -96,10 +97,16 @@
         let g:OmniSharp_highlight_types = 1
         let g:OmniSharp_selector_ui = 'fzf'
 
-        " deoplete
-        let g:deoplete#enable_at_startup = 1
-
         " coc.vim
         let g:coc_disable_startup_warning = 1
+
+        " ale
+        let g:ale_fix_on_save = 1
+        let g:ale_fixers = {
+                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+                    \   'javascript': ['prettier', 'eslint'],
+                    \   'typescript': ['prettier', 'eslint'],
+                    \}
+
     "
 "
