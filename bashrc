@@ -42,3 +42,4 @@ function ipfs() {
 }
 
 source $HOME/.fzfrc
+source "$HOME/.cargo/env"
