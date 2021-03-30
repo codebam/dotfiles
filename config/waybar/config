@@ -6,21 +6,13 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"custom/right-arrow-light",
-		"custom/right-arrow-dark"
 	],
 	"modules-center": [
-		"custom/left-arrow-dark",
-		"custom/left-arrow-light",
 		"clock#1",
 		"clock#2",
 		"clock#3",
-		"custom/right-arrow-light",
-		"custom/right-arrow-dark"
 	],
 	"modules-right": [
-		"custom/left-arrow-dark",
-		"custom/left-arrow-light",
 		"pulseaudio",
 		"memory",
 		"cpu",
