@@ -1,21 +1,25 @@
 * {
 	font-size: 9pt;
 	font-family: 'Fira Code';
+	border-top: none;
+	border-bottom: none;
+	margin-top: -1px;
+	margin-bottom: -1px;
 }
 
 window#waybar {
-	background: #353b45;
-	color: #abb2bf;
+	background: #3B4252;
+	color: #E5E9F0;
 }
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-	color: #282c34;
+	color: #3b4252;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-	color: #353b45;
-	background: #282c34;
+	color: #434c5e;
+	background: #3b4252;
 }
 
 #workspaces,
@@ -29,43 +33,44 @@ window#waybar {
 #battery,
 #disk,
 #tray {
-	background: #282c34;
+	background: #434c5e;
 }
 
 #workspaces button {
 	padding: 0 2px;
-	color: #abb2bf;
+	color: #E5E9F0;
+	border-radius: 0px;
 }
 #workspaces button.focused {
-	color: #61afef;
+	color: #2E3440;
+	background: #88C0D0;
 }
 #workspaces button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
-}
-#workspaces button:hover {
-	background: #282c34;
-	border: #282c34;
+	color: #2E3440;
+	background: #81a1c1;
+	border: #2E3440;
 	padding: 0 3px;
 }
 
 #pulseaudio {
-	color: #61afef;
+	color: #EBCB8B;
 }
 #network {
-	color: #abb2bf;
+	color: #E5E9F0;
 }
 #memory {
-	color: #56b6c2;
+	color: #D08770;
 }
 #cpu {
-	color: #c678dd;
+	color: #BF616A;
 }
 #battery {
-	color: #98c379;
+	color: #A3BE8C;
 }
 #disk {
-	color: #e5c07b;
+	color: #5E81AC;
 }
 
 #clock,

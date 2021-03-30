@@ -24,7 +24,6 @@
     set ignorecase
     set smartcase
     set noshowmode
-    set laststatus=0
     set foldmethod=indent
     set nofoldenable
     set autochdir
@@ -32,8 +31,6 @@
     set showmatch
     set matchtime=3
     set textwidth=80
-    " set colorcolumn=80
-    " set cursorline
     set undofile
     set undodir=$HOME/.vim/undodir
     "
@@ -48,7 +45,6 @@
     " plug
     call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'joshdick/onedark.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm i'  }
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -61,12 +57,16 @@
     Plug 'tomlion/vim-solidity'
     Plug 'leafgarland/typescript-vim'
     Plug 'dense-analysis/ale'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mhinz/vim-startify'
+    Plug 'metakirby5/codi.vim'
+    Plug 'arcticicestudio/nord-vim'
     call plug#end()
 "
     " display options
         " colorscheme
         set background=dark
-        colorscheme onedark
+        colorscheme nord
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
@@ -96,9 +96,11 @@
         let g:OmniSharp_server_use_mono = 1
         let g:OmniSharp_highlight_types = 1
         let g:OmniSharp_selector_ui = 'fzf'
+    "
 
         " coc.vim
         let g:coc_disable_startup_warning = 1
+    "
 
         " ale
         let g:ale_fix_on_save = 1
@@ -107,6 +109,11 @@
                     \   'javascript': ['prettier', 'eslint'],
                     \   'typescript': ['prettier', 'eslint'],
                     \}
+    "
 
+        " lightline
+        let g:lightline = {
+                    \ 'colorscheme': 'nord',
+                    \ }
     "
 "

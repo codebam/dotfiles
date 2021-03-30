@@ -4,17 +4,19 @@ window {
 }
 
 #input {
-	margin: 4px;
-	color: #abb2bf;
-	background-color: #282c34;
+	margin-left: 4px;
+	margin-right: 4px;
+	color: #E5E9F0;
+	background-color: #2E3440;
 	box-shadow: none;
-	border: none;
+	border: 1px solid #88c0d0;
+	border-radius: 0px;
 }
 
 #inner-box {
 	border-radius: 4px 4px 4px 4px;
-	background-color: #282c34;
-	border 1px solid #353b45;
+	background-color: #2E3440;
+	border 1px solid #3B4252;
 }
 
 #outer-box {
@@ -29,21 +31,19 @@ window {
 #text {
 	font-family: Fira Code;
 	font-size: 9pt;
-	margin: 4px;
-	color: #abb2bf;
+	color: #E5E9F0;
 	outline-style: none;
 }
 
 #entry:selected {
-	color: #61afef;
-	border-radius: 2px;
-	background-color: inherit;
+	color: #2e3440;
+	background-color: #88c0d0;
 }
 
 #entry:selected #text {
-	color: #61afef;
+	color: #2e3440;
 }
 
-.right {
+.left, .right {
 	color: transparent;
 }
