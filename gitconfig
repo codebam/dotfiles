@@ -30,3 +30,5 @@
 	smtpuser = codebam
 	smtpencryption = tls
 	smtpserverport = 587
+[core]
+	excludesFile = ~/.gitignore
