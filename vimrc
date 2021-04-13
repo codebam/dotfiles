@@ -51,16 +51,17 @@
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
-    Plug 'OmniSharp/omnisharp-vim'
     Plug 'junegunn/fzf.vim'
     Plug 'cespare/vim-toml'
     Plug 'tomlion/vim-solidity'
     Plug 'leafgarland/typescript-vim'
-    Plug 'dense-analysis/ale'
     Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-startify'
     Plug 'metakirby5/codi.vim'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'lilydjwg/colorizer'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    Plug 'peitalin/vim-jsx-typescript'
     call plug#end()
 "
     " display options
@@ -100,15 +101,11 @@
 
         " coc.vim
         let g:coc_disable_startup_warning = 1
-    "
-
-        " ale
-        let g:ale_fix_on_save = 1
-        let g:ale_fixers = {
-                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                    \   'javascript': ['prettier', 'eslint'],
-                    \   'typescript': ['prettier', 'eslint'],
-                    \}
+        let g:coc_global_extensions = [
+              \ 'coc-tsserver',
+              \ 'coc-prettier',
+              \ 'coc-eslint'
+          \ ]
     "
 
         " lightline
