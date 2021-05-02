@@ -53,8 +53,8 @@ output eDP-1 {
 
 # disable the laptop display when the lid closes
 set $laptop eDP-1
-bindswitch --reload lid:on output $laptop disable
-bindswitch --reload lid:off output $laptop enable
+# bindswitch --reload lid:on output $laptop disable
+# bindswitch --reload lid:off output $laptop enable
 
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 # output HDMI-A-1 pos 0 0 res 1920x1080
@@ -63,11 +63,11 @@ bindswitch --reload lid:off output $laptop enable
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-exec swayidle -w \
-         timeout 300 'swaylock' \
-         timeout 600 'swaymsg "output * dpms off"' \
-         resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock'
+# exec swayidle -w \
+         # timeout 300 'swaylock' \
+         # timeout 600 'swaymsg "output * dpms off"' \
+         # resume 'swaymsg "output * dpms on"' \
+         # before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -365,7 +365,8 @@ bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
 # mouse wheel changes audio volume
 
 bindsym $mod+n exec 'swaymsg "bar mode toggle"'
-bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
+# bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
+bindsym $mod+p exec "swaylock"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "makoctl dismiss"
