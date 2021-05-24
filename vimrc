@@ -62,6 +62,7 @@
     Plug 'lilydjwg/colorizer'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'peitalin/vim-jsx-typescript'
+    Plug 'folke/todo-comments.nvim'
     call plug#end()
 "
     " display options
