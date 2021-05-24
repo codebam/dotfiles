@@ -17,7 +17,7 @@ export HISTSIZE=1000
 # export HISTFILESIZE=
 # no limit to bash history
 
-export TERM=xterm-kitty
+export TERM=xterm-256color
 # change TERM to kitty for 24b color in foot
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
