@@ -33,6 +33,7 @@
     set textwidth=80
     set undofile
     set undodir=$HOME/.vim/undodir
+    set tags=./tags;,tags;
     "
 
     " autocmds
@@ -105,7 +106,9 @@
         let g:coc_global_extensions = [
               \ 'coc-tsserver',
               \ 'coc-prettier',
-              \ 'coc-eslint'
+              \ 'coc-eslint',
+              \ 'coc-texlab',
+              \ 'coc-go'
           \ ]
     "
 

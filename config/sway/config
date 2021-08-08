@@ -28,7 +28,7 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /var/home/codebam/Pictures/Wallpapers/66-north-iN7Whbm0TVc-unsplash.jpg fill
+output * bg /var/home/codebam/Pictures/Wallpapers/ivana-cajina-Pn8T-kC9A0E-unsplash.jpg fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
