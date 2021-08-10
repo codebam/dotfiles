@@ -108,7 +108,8 @@
               \ 'coc-prettier',
               \ 'coc-eslint',
               \ 'coc-texlab',
-              \ 'coc-go'
+              \ 'coc-go',
+              \ 'coc-css'
           \ ]
     "
 
