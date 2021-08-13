@@ -26,7 +26,12 @@ export TERM=xterm-256color
 # User specific aliases and functions
 # alias gpg="gpg2"
 alias e=$EDITOR
+alias y="yarn"
 alias g="git"
+alias gb="git branch"
+alias gc="git checkout"
+alias gl="git log"
+alias gr="git reset"
 
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
