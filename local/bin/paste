@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -F "file=@-;filename=.$1" https://paste.sbehan.ca/

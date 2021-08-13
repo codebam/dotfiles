@@ -1,3 +1,0 @@
-#!/bin/sh
-
-curl -F "file=@-;filename=.$1" https://x0.at/
