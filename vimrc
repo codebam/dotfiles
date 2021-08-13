@@ -75,6 +75,9 @@
             let g:gitgutter_override_sign_column_highlight = 0
             highlight clear SignColumn
         "
+            " italic comments
+            highlight Comment cterm=italic gui=italic
+        "
         " remap
         noremap <C-p> :Files<CR>
         noremap <C-h> :History<CR>
