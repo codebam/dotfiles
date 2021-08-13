@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 grim -g "$(slurp)" /tmp/screenshot.png &&
-paste png < /tmp/screenshot.png | wl-copy
+spaste png < /tmp/screenshot.png | wl-copy
