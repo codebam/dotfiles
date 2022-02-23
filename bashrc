@@ -11,7 +11,7 @@ fi
 
 # export PS1="\W 😎💻 "
 # export PS1="\W "
-# export PS1="\${PWD##*/} "
+export PS1="\${PWD##*/} "
 
 export HISTSIZE=1000
 # export HISTFILESIZE=
@@ -49,5 +49,6 @@ function ipfs() {
 	podman exec ipfs-container ipfs "$@"
 }
 
-source $HOME/.fzfrc
-source "$HOME/.cargo/env"
+. "$HOME/.fzfrc"
+. "$HOME/.cargo/env"
+sudo mount -a
