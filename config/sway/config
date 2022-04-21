@@ -28,7 +28,7 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /var/home/codebam/Pictures/Wallpapers/ivana-cajina-Pn8T-kC9A0E-unsplash.jpg fill
+output * bg /var/home/codebam/Pictures/Wallpapers/warren-wong-AblsCy-4oAs-unsplash.jpg fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
@@ -310,6 +310,10 @@ input "2:10:TPPS/2_Elan_TrackPoint" {
 input "1133:16466:Logitech_M545/M546" {
     pointer_accel 0.8
 }
+input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+    accel_profile "flat"
+    pointer_accel 0
+}
 # to get inputs use: swaymsg -t get_inputs
 
 exec gammastep -l $(cat ~/.config/latlong)
@@ -322,9 +326,10 @@ exec /usr/libexec/xdg-desktop-portal-wlr -r
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita Dark'
-    # gsettings set $gnome-schema icon-theme 'Breeze Chameleon Dark'
-    # gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
+    gsettings set $gnome-schema font-name 'Noto Sans'
 }
 # exec inactive-windows-transparency
 
@@ -335,7 +340,7 @@ focus_follows_mouse no
 gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
-# seat seat0 hide_cursor 1000
+seat seat0 hide_cursor 1000
 default_orientation vertical
 
 # load the configured cursor theme, change with lxappearance
@@ -367,6 +372,7 @@ bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
 bindsym $mod+n exec 'swaymsg "bar mode toggle"'
 # bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
 bindsym $mod+p exec "swaylock"
+bindsym $mod+shift+p exec "swaylock & systemctl suspend"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "makoctl dismiss"
