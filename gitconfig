@@ -34,3 +34,5 @@
 	excludesFile = ~/.gitignore
 [init]
 	defaultBranch = master
+[color]
+	ui = auto
