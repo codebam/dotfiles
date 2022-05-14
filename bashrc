@@ -13,8 +13,8 @@ fi
 # export PS1="\W "
 # export PS1="\${PWD##*/} "
 
-export HISTSIZE=1000
-# export HISTFILESIZE=
+export HISTSIZE=
+export HISTFILESIZE=
 # no limit to bash history
 
 # change TERM to kitty for 24b color in foot
@@ -50,3 +50,4 @@ function ipfs() {
 
 source $HOME/.fzfrc
 source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
