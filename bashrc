@@ -35,6 +35,11 @@ alias gr="git reset"
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
 alias reddit="ttrv"
+alias firefox="trickle -d 2500 -u 625 firefox &"
+
+limit() {
+    trickle -d 2500 -u 625 $1 &
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
