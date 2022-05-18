@@ -35,28 +35,25 @@ output * bg /var/home/codebam/Pictures/Wallpapers/warren-wong-AblsCy-4oAs-unspla
 # Example configuration:
 #
 
+# laptop display
 output eDP-1 {
     scale 1.5
 }
-
-# output DP-1 {
-#     resolution 2560x1440
-#     # transform 270
-# }
-
-# output HDMI-A-1 {
-#     # resolution 1920x1080
-#     resolution 2560x1440
-#     # position 1440 0 # don't uncomment this
-#     # transform 270
-# }
 
 # disable the laptop display when the lid closes
 set $laptop eDP-1
 # bindswitch --reload lid:on output $laptop disable
 # bindswitch --reload lid:off output $laptop enable
 
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+# desktop monitor
+output DP-1 {
+    mode 3840x1600@143.99800Hz
+
+    adaptive_sync off
+    # broken as of sway 1.7
+}
+
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
 # output HDMI-A-1 pos 0 0 res 1920x1080
 # output HDMI-A-1 pos 0 0 res 2560x1440
 #
@@ -340,7 +337,7 @@ gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
 # seat seat0 hide_cursor 1000
-default_orientation vertical
+default_orientation horizontal
 
 # load the configured cursor theme, change with lxappearance
 seat seat0 xcursor_theme default
