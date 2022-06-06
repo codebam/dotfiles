@@ -59,7 +59,7 @@
     Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-startify'
     Plug 'metakirby5/codi.vim'
-    Plug 'arcticicestudio/nord-vim'
+    Plug 'NLKNguyen/papercolor-theme'
     Plug 'lilydjwg/colorizer'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'peitalin/vim-jsx-typescript'
@@ -69,8 +69,8 @@
 "
     " display options
         " colorscheme
-        set background=dark
-        colorscheme nord
+        set background=light
+        colorscheme PaperColor
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
@@ -109,12 +109,6 @@
         let g:netrw_browse_split = 4
         let g:netrw_altv = 1
         let g:netrw_winsize = 20
-    "
-        " omnisharp
-        let g:OmniSharp_timeout = 5
-        let g:OmniSharp_server_use_mono = 1
-        let g:OmniSharp_highlight_types = 1
-        let g:OmniSharp_selector_ui = 'fzf'
     "
 
         " coc.vim
