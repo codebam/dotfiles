@@ -47,10 +47,11 @@ set $laptop eDP-1
 
 # desktop monitor
 output DP-1 {
-    mode 3840x1600@143.99800Hz
+  # mode 3840x1600@1499800Hz
+#     mode 3840x1600@119.98200Hz
+    # mode 3840x1600@99.97000Hz
 
-    adaptive_sync off
-    # broken as of sway 1.7
+    adaptive_sync on
 }
 
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -344,8 +345,7 @@ seat seat0 xcursor_theme default
 
 # floating terminal
 # for_window [app_id="floating"] floating enable
-# bindsym $mod+i exec '$term & swaymsg "for_window [pid=${!}] floating enable"'
-bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
+# bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
 bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
@@ -353,7 +353,7 @@ bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
 bindsym XF86AudioMute exec "amixer set Master toggle"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
-bindsym $mod+u exec "toolbox run playerctl play-pause"
+bindsym $mod+shift+u exec "toolbox run playerctl play-pause"
 
 bindsym XF86MonBrightnessUp exec "light -A 1"
 bindsym XF86MonBrightnessDown exec "light -U 1"
