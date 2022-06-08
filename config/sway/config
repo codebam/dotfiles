@@ -28,35 +28,33 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /var/home/codebam/Pictures/Wallpapers/ivana-cajina-Pn8T-kC9A0E-unsplash.jpg fill
+output * bg /var/home/codebam/Pictures/Wallpapers/warren-wong-AblsCy-4oAs-unsplash.jpg fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
 # Example configuration:
 #
 
+# laptop display
 output eDP-1 {
     scale 1.5
 }
-
-# output DP-1 {
-#     resolution 2560x1440
-#     # transform 270
-# }
-
-# output HDMI-A-1 {
-#     # resolution 1920x1080
-#     resolution 2560x1440
-#     # position 1440 0 # don't uncomment this
-#     # transform 270
-# }
 
 # disable the laptop display when the lid closes
 set $laptop eDP-1
 # bindswitch --reload lid:on output $laptop disable
 # bindswitch --reload lid:off output $laptop enable
 
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+# desktop monitor
+output DP-1 {
+  # mode 3840x1600@1499800Hz
+#     mode 3840x1600@119.98200Hz
+    # mode 3840x1600@99.97000Hz
+
+    adaptive_sync on
+}
+
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
 # output HDMI-A-1 pos 0 0 res 1920x1080
 # output HDMI-A-1 pos 0 0 res 2560x1440
 #
@@ -310,21 +308,25 @@ input "2:10:TPPS/2_Elan_TrackPoint" {
 input "1133:16466:Logitech_M545/M546" {
     pointer_accel 0.8
 }
+input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+    accel_profile "flat"
+    pointer_accel 0
+}
 # to get inputs use: swaymsg -t get_inputs
 
 exec gammastep -l $(cat ~/.config/latlong)
 exec mako
 exec xrdb -load ~/.Xresources
-exec pipewire
 exec /usr/libexec/xdg-desktop-portal -r
 exec /usr/libexec/xdg-desktop-portal-wlr -r
 
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita Dark'
-    # gsettings set $gnome-schema icon-theme 'Breeze Chameleon Dark'
-    # gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
+    gsettings set $gnome-schema font-name 'Noto Sans'
 }
 # exec inactive-windows-transparency
 
@@ -336,15 +338,14 @@ gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
 # seat seat0 hide_cursor 1000
-default_orientation vertical
+default_orientation horizontal
 
 # load the configured cursor theme, change with lxappearance
 seat seat0 xcursor_theme default
 
 # floating terminal
 # for_window [app_id="floating"] floating enable
-# bindsym $mod+i exec '$term & swaymsg "for_window [pid=${!}] floating enable"'
-bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
+# bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
 bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
@@ -352,7 +353,7 @@ bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
 bindsym XF86AudioMute exec "amixer set Master toggle"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
-bindsym $mod+u exec "toolbox run playerctl play-pause"
+bindsym $mod+shift+u exec "toolbox run playerctl play-pause"
 
 bindsym XF86MonBrightnessUp exec "light -A 1"
 bindsym XF86MonBrightnessDown exec "light -U 1"
@@ -367,6 +368,7 @@ bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
 bindsym $mod+n exec 'swaymsg "bar mode toggle"'
 # bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
 bindsym $mod+p exec "swaylock"
+bindsym $mod+shift+p exec "swaylock & systemctl suspend"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "makoctl dismiss"

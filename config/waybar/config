@@ -2,7 +2,7 @@
 
 {
 	"layer": "bottom",
-	"position": "bottom",
+	"position": "top",
 
 	"modules-left": [
 		"sway/workspaces",
@@ -61,10 +61,10 @@
 		"format-bluetooth": "{icon}  {volume}%",
 		"format-muted": "MUTE",
 		"format-icons": {
-			"headphones": "",
+			"headphones": "Headphones",
 			"default": [
-				"",
-				""
+				"Volume",
+				"Volume"
 			]
 		},
 		"scroll-step": 5,
@@ -75,16 +75,16 @@
             // "interface": "wlp2s0", // (Optional) To force the use of this interface
             "format-wifi": " {signalStrength}%",
             "format-ethernet": " {ifname}",
-            "format-disconnected": "⚠ No Network",
+            "format-disconnected": "No Network",
             "interval" : 7
         },
 	"memory": {
 		"interval": 5,
-		"format": "Mem {}%"
+		"format": "Memory {}%"
 	},
 	"cpu": {
 		"interval": 5,
-		"format": "CPU {usage:2}%"
+		"format": "Processor {usage:2}%"
 	},
 	"battery": {
 		"states": {

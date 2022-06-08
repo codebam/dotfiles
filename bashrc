@@ -13,12 +13,9 @@ fi
 # export PS1="\W "
 export PS1="\${PWD##*/} "
 
-export HISTSIZE=1000
-# export HISTFILESIZE=
+export HISTSIZE=
+export HISTFILESIZE=
 # no limit to bash history
-
-# export TERM=xterm-256color
-# change TERM to kitty for 24b color in foot
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -37,6 +34,11 @@ alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
 alias reddit="ttrv"
 alias wudo="python3 $HOME/git/wsl-sudo/wsl-sudo.py"
+alias firefox="trickle -d 2500 -u 625 firefox &"
+
+limit() {
+    trickle -d 2500 -u 625 $1 &
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -50,9 +52,7 @@ function ipfs() {
 	podman exec ipfs-container ipfs "$@"
 }
 
-. "$HOME/.fzfrc"
-. "$HOME/.cargo/env"
-sudo mount -a
+# sudo mount -a
 source <(podman completion bash)
 
 export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
@@ -78,3 +78,6 @@ if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
   fi
   unset wsl2_ssh_pageant_bin
 fi
+
+source $HOME/.fzfrc
+source "$HOME/.cargo/env"

@@ -1,9 +1,0 @@
-[Unit]
-Description=Ethereum Miner
-
-[Service]
-ExecStart=/usr/bin/toolbox run amdgporun /var/home/codebam/.local/bin/teamredminer -a ethash -o stratum+ssl://us1.ethermine.org:5555 -u 0xE0847852Db3215C1a5dcf0f78FB032cb61a89732
-# ExecStart=/usr/bin/toolbox run /var/home/codebam/.local/bin/teamredminer -a ethash -o stratum+ssl://eth-us-east.flexpool.io:5555 -u 0xE0847852Db3215C1a5dcf0f78FB032cb61a89732.teamredminer
-
-[Install]
-WantedBy=default.target
