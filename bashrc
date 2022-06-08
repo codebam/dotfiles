@@ -1,6 +1,6 @@
 # .bashrc
 
-source ~/.profile
+. ~/.profile
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -17,7 +17,7 @@ export HISTSIZE=1000
 # export HISTFILESIZE=
 # no limit to bash history
 
-export TERM=xterm-256color
+# export TERM=xterm-256color
 # change TERM to kitty for 24b color in foot
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
@@ -36,14 +36,15 @@ alias gr="git reset"
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
 alias reddit="ttrv"
+alias wudo="python3 $HOME/git/wsl-sudo/wsl-sudo.py"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
+# export GPG_TTY="$(tty)"
+# export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+# gpg-connect-agent updatestartuptty /bye > /dev/null
 
 function ipfs() {
 	podman exec ipfs-container ipfs "$@"
@@ -52,3 +53,28 @@ function ipfs() {
 . "$HOME/.fzfrc"
 . "$HOME/.cargo/env"
 sudo mount -a
+source <(podman completion bash)
+
+export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
+  rm -f "$SSH_AUTH_SOCK"
+  wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
+  if test -x "$wsl2_ssh_pageant_bin"; then
+    (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin -gpgConfigBasepath 'C:/Users/swb19/AppData/Local/gnupg'" >/dev/null 2>&1 &)
+  else
+    echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
+  fi
+  unset wsl2_ssh_pageant_bin
+fi
+
+export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
+if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
+  rm -rf "$GPG_AGENT_SOCK"
+  wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
+  if test -x "$wsl2_ssh_pageant_bin"; then
+    (setsid nohup socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin -gpgConfigBasepath 'C:/Users/swb19/AppData/Local/gnupg' -gpg S.gpg-agent" >/dev/null 2>&1 &)
+  else
+    echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
+  fi
+  unset wsl2_ssh_pageant_bin
+fi
