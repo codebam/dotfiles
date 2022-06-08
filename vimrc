@@ -41,6 +41,7 @@
     autocmd FileType html setlocal shiftwidth=2 tabstop=2
     autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
     autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+    autocmd FileType svelte setlocal shiftwidth=2 tabstop=2
     "
 
     " plug
@@ -65,6 +66,7 @@
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'folke/todo-comments.nvim'
     Plug 'honza/vim-snippets'
+    Plug 'leafOfTree/vim-svelte-plugin'
     call plug#end()
 "
     " display options
@@ -116,7 +118,10 @@
         let g:OmniSharp_highlight_types = 1
         let g:OmniSharp_selector_ui = 'fzf'
     "
-
+        " vim-svelte
+        let g:vim_svelte_plugin_load_full_syntax = 1
+        let g:vim_svelte_plugin_use_typescript = 1
+    "
         " coc.vim
         let g:coc_disable_startup_warning = 1
         let g:coc_global_extensions = [
@@ -130,6 +135,7 @@
               \ 'coc-html',
               \ 'coc-tailwindcss',
               \ 'coc-snippets',
+              \ 'coc-svelte',
           \ ]
     "
 
