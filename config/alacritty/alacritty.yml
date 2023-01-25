@@ -178,7 +178,7 @@ font:
 # Colors (Tomorrow Night)
 colors:
   # Default colors
-  # primary:
+  primary:
     background: '0x1e2127'
     foreground: '0xabb2bf'
 
