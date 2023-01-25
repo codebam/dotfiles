@@ -27,8 +27,8 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /var/home/codebam/Pictures/Wallpapers/warren-wong-AblsCy-4oAs-unsplash.jpg fill
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
