@@ -47,11 +47,8 @@ set $laptop eDP-1
 
 # desktop monitor
 output DP-1 {
-  # mode 3840x1600@1499800Hz
-#     mode 3840x1600@119.98200Hz
-    # mode 3840x1600@99.97000Hz
-
-    adaptive_sync on
+   mode 3840x1600@143.998Hz
+   adaptive_sync on
 }
 
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -380,3 +377,5 @@ bindsym Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mk
 bindsym Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
 bindsym $mod+c exec killall -SIGUSR1 waybar
+
+exec echo $(swaymsg -p -t get_outputs) > .sway_outputs
