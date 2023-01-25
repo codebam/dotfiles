@@ -9,26 +9,29 @@ include /etc/sway/config.d/*
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
-set $alt Mod1
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term foot
-font pango:Fira Code, FontAwesome 9
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-# set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
-set $menu dmenu_path | wofi | xargs swaymsg exec
+set {
+    $mod Mod4
+    $alt Mod1
+    # Home row direction keys, like vim
+    $left h
+    $down j
+    $up k
+    $right l
+    # Your preferred terminal emulator
+    $term foot
+    $font pango:Fira Code, FontAwesome 9
+    # Your preferred application launcher
+    # Note: it's recommended that you pass the final command to sway
+    # $menu dmenu_path | rofi -show drun | xargs swaymsg exec
+    $menu dmenu_path | wofi | xargs swaymsg exec
+    $gnome-schema org.gnome.desktop.interface
+}
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg /usr/share/backgrounds/gnome/adwaita-d.webp fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
@@ -136,79 +139,19 @@ output DP-1 {
 #
 # Workspaces:
 #
-    set $ws1 1
-    set $ws2 2
-    set $ws3 3
-    set $ws4 4
-    set $ws5 5
-    set $ws6 6
-    set $ws7 7
-    set $ws8 8
-    set $ws9 9
-    set $ws10 10
+set {
+    $ws1 1
+    $ws2 2
+    $ws3 3
+    $ws4 4
+    $ws5 5
+    $ws6 6
+    $ws7 7
+    $ws8 8
+    $ws9 9
+    $ws10 10
+}
 
-    # switch to workspace
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws10
-    # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1
-    bindsym $mod+Shift+2 move container to workspace $ws2
-    bindsym $mod+Shift+3 move container to workspace $ws3
-    bindsym $mod+Shift+4 move container to workspace $ws4
-    bindsym $mod+Shift+5 move container to workspace $ws5
-    bindsym $mod+Shift+6 move container to workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7
-    bindsym $mod+Shift+8 move container to workspace $ws8
-    bindsym $mod+Shift+9 move container to workspace $ws9
-    bindsym $mod+Shift+0 move container to workspace $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-    # disabled because I want this for dismissing notifications
-
-    # move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -217,20 +160,22 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 100px
-    bindsym $down resize grow height 100px
-    bindsym $up resize shrink height 100px
-    bindsym $right resize grow width 100px
+    bindsym {
+    $left resize shrink width 100px
+    $down resize grow height 100px
+    $up resize shrink height 100px
+    $right resize grow width 100px
 
     # ditto, with arrow keys
-    bindsym Left resize shrink width 100px
-    bindsym Down resize grow height 100px
-    bindsym Up resize shrink height 100px
-    bindsym Right resize grow width 100px
+    Left resize shrink width 100px
+    Down resize grow height 100px
+    Up resize shrink height 100px
+    Right resize grow width 100px
 
     # return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    Return mode "default"
+    Escape mode "default"
+    }
 }
 bindsym $mod+r mode "resize"
 
@@ -311,15 +256,17 @@ input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 }
 # to get inputs use: swaymsg -t get_inputs
 
-exec gammastep -l $(cat ~/.config/latlong)
-exec mako
-exec xrdb -load ~/.Xresources
-exec /usr/libexec/xdg-desktop-portal -r
-exec /usr/libexec/xdg-desktop-portal-wlr -r
-
-set $gnome-schema org.gnome.desktop.interface
+exec {
+    gammastep -l $(cat ~/.config/latlong)
+    mako
+    xrdb -load ~/.Xresources
+    /usr/libexec/xdg-desktop-portal -r
+    /usr/libexec/xdg-desktop-portal-wlr -r
+    echo $(swaymsg -p -t get_outputs) > .sway_outputs
+}
 
 exec_always {
+    systemctl --user import-environment; systemctl --user start sway-session.target
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
@@ -342,40 +289,102 @@ seat seat0 xcursor_theme default
 
 # floating terminal
 # for_window [app_id="floating"] floating enable
-# bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
-bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
 
-bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
-bindsym XF86AudioMute exec "amixer set Master toggle"
-bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym --whole-window {
+    $mod+Shift+button4 exec "light -A 1"
+    $mod+Shift+button5 exec "light -U 1"
+    # mouse wheel changes brightness
 
-bindsym $mod+shift+u exec "toolbox run playerctl play-pause"
+    $mod+button4 exec "amixer set Master 1%+ unmute"
+    $mod+button5 exec "amixer set Master 1%- unmute"
+    # mouse wheel changes audio volume
+}
 
-bindsym XF86MonBrightnessUp exec "light -A 1"
-bindsym XF86MonBrightnessDown exec "light -U 1"
-bindsym --whole-window $mod+Shift+button4 exec "light -A 1"
-bindsym --whole-window $mod+Shift+button5 exec "light -U 1"
-# mouse wheel changes brightness
+bindsym {
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    $mod+b splith
+    $mod+v splitv
 
-bindsym --whole-window $mod+button4 exec "amixer set Master 1%+ unmute"
-bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
-# mouse wheel changes audio volume
+    # Switch the current container between different layout styles
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
 
-bindsym $mod+n exec 'swaymsg "bar mode toggle"'
-# bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
-bindsym $mod+p exec "swaylock"
-bindsym $mod+shift+p exec "swaylock & systemctl suspend"
-bindsym $mod+x exec "~/.local/bin/screenshot-select"
-bindsym $mod+shift+x exec "~/.local/bin/screenshot"
-bindsym Control+space exec "makoctl dismiss"
-bindsym $mod+Control+space exec "makoctl invoke"
-bindsym $mod+o exec "~/.local/bin/pass-rofi"
-bindsym $mod+y exec "~/.local/bin/mpvyt-rofi"
-bindsym $mod+Ctrl+Print exec wf-recorder -a -f rtmp://live-yto.twitch.tv/app/live_100607192_Y8CdRUQxGbTLCi6j6Uja4c8nowC8Cb -c h264_vaapi -d /dev/dri/renderD128 -t
-bindsym Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
-bindsym Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
-bindsym Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
-bindsym $mod+c exec killall -SIGUSR1 waybar
+    # Make the current focus fullscreen
+    $mod+f fullscreen
 
-exec echo $(swaymsg -p -t get_outputs) > .sway_outputs
+    # Toggle the current focus between tiling and floating mode
+    $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    $mod+space focus mode_toggle
+    # disabled because I want this for dismissing notifications
+
+    # move focus to the parent container
+    $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    $mod+minus scratchpad show
+    # switch to workspace
+    $mod+1 workspace $ws1
+    $mod+2 workspace $ws2
+    $mod+3 workspace $ws3
+    $mod+4 workspace $ws4
+    $mod+5 workspace $ws5
+    $mod+6 workspace $ws6
+    $mod+7 workspace $ws7
+    $mod+8 workspace $ws8
+    $mod+9 workspace $ws9
+    $mod+0 workspace $ws10
+    # move focused container to workspace
+    $mod+Shift+1 move container to workspace $ws1
+    $mod+Shift+2 move container to workspace $ws2
+    $mod+Shift+3 move container to workspace $ws3
+    $mod+Shift+4 move container to workspace $ws4
+    $mod+Shift+5 move container to workspace $ws5
+    $mod+Shift+6 move container to workspace $ws6
+    $mod+Shift+7 move container to workspace $ws7
+    $mod+Shift+8 move container to workspace $ws8
+    $mod+Shift+9 move container to workspace $ws9
+    $mod+Shift+0 move container to workspace $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+    # $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
+    XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
+    XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
+    XF86AudioMute exec "amixer set Master toggle"
+    XF86AudioMicMute exec "amixer set Capture toggle"
+    $mod+shift+u exec "toolbox run playerctl play-pause"
+    XF86MonBrightnessUp exec "light -A 1"
+    XF86MonBrightnessDown exec "light -U 1"
+    $mod+n exec 'swaymsg "bar mode toggle"'
+    # $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
+    $mod+p exec "swaylock"
+    $mod+shift+p exec "swaylock & systemctl suspend"
+    $mod+x exec "~/.local/bin/screenshot-select"
+    $mod+shift+x exec "~/.local/bin/screenshot"
+    Control+space exec "makoctl dismiss"
+    $mod+Control+space exec "makoctl invoke"
+    $mod+o exec "~/.local/bin/pass-rofi"
+    $mod+y exec "~/.local/bin/mpvyt-rofi"
+    $mod+Ctrl+Print exec wf-recorder -a -f rtmp://live-yto.twitch.tv/app/live_100607192_Y8CdRUQxGbTLCi6j6Uja4c8nowC8Cb -c h264_vaapi -d /dev/dri/renderD128 -t
+    Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
+    Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
+    Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
+    $mod+c exec killall -SIGUSR1 waybar
+}
