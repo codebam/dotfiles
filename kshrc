@@ -2,8 +2,8 @@ set -o emacs
 
 alias ls="ls --color=auto"
 alias c=clear
-alias sway="systemctl --user start sway"
-alias swaylog="journalctl --user -f -u sway.service"
+alias sway="systemctl --user start sway-session"
+alias swaylog="journalctl --user -f --no-tail -u sway-session | less -S"
 
 export PS1=$'$PWD '
 export FLATPAK_GL_DRIVERS=mesa-git
