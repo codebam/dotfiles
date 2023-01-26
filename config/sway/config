@@ -262,7 +262,7 @@ exec {
     xrdb -load ~/.Xresources
     /usr/libexec/xdg-desktop-portal -r
     /usr/libexec/xdg-desktop-portal-wlr -r
-    echo $(swaymsg -p -t get_outputs) > .sway_outputs
+    echo -e $(swaymsg -p -t get_outputs) > .sway_outputs
 }
 
 exec_always {
@@ -289,6 +289,9 @@ seat seat0 xcursor_theme default
 
 # floating terminal
 # for_window [app_id="floating"] floating enable
+
+# prevent chrome in wayland from capturing keyboard
+for_window [app_id="^chrome-.*-.*$"] shortcuts_inhibitor disable
 
 bindsym --whole-window {
     $mod+Shift+button4 exec "light -A 1"
