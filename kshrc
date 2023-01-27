@@ -3,7 +3,7 @@ set -o emacs
 alias ls="ls --color=auto"
 alias c=clear
 alias sway="systemctl --user start sway-session"
-alias swaylog="journalctl --user -f --no-tail -u sway-session | less -S"
+alias swaylog="journalctl --user -f --no-tail -u sway-session | less -S +F"
 alias today="watch -t 'echo -e \"$(date)\" \"\n\n\" \"$(cal)\"'"
 
 export PS1=$'$PWD '
