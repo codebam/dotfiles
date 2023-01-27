@@ -4,10 +4,13 @@ Documentation=man:systemd.special
 BindsTo=graphical-session.target
 Wants=graphical-session-pre.target
 After=graphical-session-pre.target
+StartLimitBurst=5
+StartLimitInterval=1000
 
 [Service]
-Restart=on-failure
-ExecStart=/usr/bin/sway
+ExecStart=/usr/bin/systemd-run --scope --user --property=ManagedOOMPreference=omit /usr/bin/dbus-run-session /usr/bin/sway
+Restart=always
+RestartSec=120
 
 [Install]
 WantedBy=default.target
