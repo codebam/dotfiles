@@ -31,9 +31,9 @@ set {
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /usr/share/backgrounds/gnome/adwaita-d.webp fill
+# output * bg /usr/share/backgrounds/gnome/adwaita-d.webp fill
 #
-# output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
+output * bg ~/Pictures/wallpaper-january-2023.webp fill
 #
 # Example configuration:
 #
@@ -52,6 +52,7 @@ set $laptop eDP-1
 output DP-1 {
    mode 3840x1600@143.998Hz
    adaptive_sync on
+   max_render_time 1
 }
 
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -112,6 +113,7 @@ output DP-1 {
     # exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+e exec swaymsg exit
+    # bindsym $mod+Shift+e exec systemctl --user stop sway-session
 #
 # Moving around:
 #
@@ -391,3 +393,5 @@ bindsym {
     Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
     $mod+c exec killall -SIGUSR1 waybar
 }
+
+# xwayland disable
