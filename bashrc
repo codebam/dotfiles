@@ -11,7 +11,10 @@ fi
 
 # export PS1="\W 😎💻 "
 # export PS1="\W "
-export PS1="\${PWD##*/} "
+export PS1="\${PWD} "
+export FLATPAK_GL_DRIVERS=mesa-git
+export RADV_PERFTEST=gpl
+export WLR_RENDERER=vulkan
 
 export HISTSIZE=
 export HISTFILESIZE=
@@ -34,7 +37,6 @@ alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
 alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
 alias reddit="ttrv"
 alias wudo="python3 $HOME/git/wsl-sudo/wsl-sudo.py"
-alias firefox="trickle -d 2500 -u 625 firefox &"
 
 limit() {
     trickle -d 2500 -u 625 $1 &
