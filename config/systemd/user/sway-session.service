@@ -9,7 +9,8 @@ StartLimitInterval=1000
 
 [Service]
 ExecStart=/usr/bin/systemd-run --scope --user --property=ManagedOOMPreference=omit /usr/bin/dbus-run-session /usr/bin/sway
-Restart=always
+ExecStop=/usr/bin/swaymsg exit
+Restart=on-abnormal
 RestartSec=120
 
 [Install]
