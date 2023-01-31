@@ -1,22 +1,22 @@
-// -*- mode: json -*-
-
 {
 	"layer": "bottom",
 	"position": "top",
 
 	"modules-left": [
-		"sway/workspaces",
+		"sway/workspaces"
 	],
 	"modules-center": [
 		"clock#1",
 		"clock#2",
-		"clock#3",
+		"clock#3"
 	],
 	"modules-right": [
-		"pulseaudio",
+		"wireplumber",
 		"memory",
 		"cpu",
+                "temperature",
 		"disk",
+                "custom/disk_raid",
                 "network",
 		"battery"
 	],
@@ -55,7 +55,20 @@
 		"format": "{:%m-%d}",
 		"tooltip": false
 	},
-
+	"wireplumber": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "Headphones",
+			"default": [
+				"Volume",
+				"Volume"
+			]
+		},
+		"scroll-step": 1,
+		"on-click": "helvum"
+	},
 	"pulseaudio": {
 		"format": "{icon} {volume:2}%",
 		"format-bluetooth": "{icon}  {volume}%",
@@ -67,25 +80,28 @@
 				"Volume"
 			]
 		},
-		"scroll-step": 5,
+		"scroll-step": 1,
 		"on-click": "pamixer -t",
 		"on-click-right": "pavucontrol"
 	},
         "network": {
-            // "interface": "wlp2s0", // (Optional) To force the use of this interface
             "format-wifi": " {signalStrength}%",
             "format-ethernet": " {ifname}",
             "format-disconnected": "No Network",
-            "interval" : 7
+            "interval" : 1
         },
 	"memory": {
-		"interval": 5,
+		"interval": 1,
 		"format": "Memory {}%"
 	},
 	"cpu": {
-		"interval": 5,
-		"format": "Processor {usage:2}%"
+		"interval": 1,
+		"format": "CPU {load:3}"
 	},
+        "temperature": {
+		"interval": 1,
+                "format": "{temperatureC}°C "
+        },
 	"battery": {
 		"states": {
 			"good": 95,
@@ -102,9 +118,15 @@
 		]
 	},
 	"disk": {
-		"interval": 5,
-		"format": "Disk {percentage_used:2}%",
+		"interval": 1,
+		"format": "Disk{percentage_used:2}%",
 		"path": "/"
+	},
+        "custom/disk_raid": {
+		"interval": 1,
+		"format": "Raid {:4}",
+                "exec": "df -h --output=avail /run/media/codebam/a4058013-b85c-4bf0-a187-b459a23267a9/ | tail -1 | tr -d ' '",
+		"tooltip": "false"
 	},
 	"tray": {
 		"icon-size": 20

@@ -27,11 +27,13 @@ window#waybar {
 #clock.2,
 #clock.3,
 #pulseaudio,
+#wireplumber,
 #network,
 #memory,
 #cpu,
 #battery,
 #disk,
+#custom-disk_raid,
 #tray {
 	background: #434c5e;
 }
@@ -54,7 +56,7 @@ window#waybar {
 	padding: 0 3px;
 }
 
-#pulseaudio {
+#pulseaudio, #wireplumber {
 	color: #EBCB8B;
 }
 #network {
@@ -69,16 +71,18 @@ window#waybar {
 #battery {
 	color: #A3BE8C;
 }
-#disk {
+#disk, #custom-disk_raid {
 	color: #5E81AC;
 }
 
 #clock,
 #pulseaudio,
+#wireplumber,
 #network,
 #memory,
 #cpu,
 #battery,
-#disk {
+#disk,
+#custom-disk_raid {
 	padding: 0 10px;
 }
