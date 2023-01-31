@@ -28,12 +28,15 @@
     set nofoldenable
     set autochdir
     set hidden
+    set incsearch
+    set hlsearch
     set showmatch
     set matchtime=3
     set textwidth=80
     set undofile
     set undodir=$HOME/.vim/undodir
     set tags=./tags;,tags;
+
     "
 
     " autocmds
@@ -75,6 +78,7 @@
         " colorscheme
         set background=dark
         colorscheme nord
+
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
@@ -93,12 +97,12 @@
         noremap 0 ^
         noremap ^ 0
         inoremap <silent><expr> <TAB>
-                    \ pumvisible() ? coc#_select_confirm() :
-                    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-                    \ <SID>check_back_space() ? "\<TAB>" :
+                    \ coc#pum#visible() ? coc#pum#next(1) :
+                    \ CheckBackspace() ? "\<Tab>" :
                     \ coc#refresh()
+        inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-        function! s:check_back_space() abort
+        function! CheckBackspace() abort
             let col = col('.') - 1
             return !col || getline('.')[col - 1]  =~# '\s'
         endfunction
