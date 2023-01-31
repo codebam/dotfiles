@@ -54,6 +54,11 @@ output DP-1 {
    adaptive_sync on
    max_render_time 1
 }
+output DP-3 {
+   mode 3840x1600@143.998Hz
+   adaptive_sync on
+   max_render_time 1
+}
 
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
 # output HDMI-A-1 pos 0 0 res 1920x1080
@@ -283,7 +288,7 @@ focus_follows_mouse no
 gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
-# seat seat0 hide_cursor 1000
+seat seat0 hide_cursor 1000
 default_orientation horizontal
 
 # load the configured cursor theme, change with lxappearance
