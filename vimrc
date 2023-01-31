@@ -60,7 +60,9 @@
     Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-startify'
     Plug 'metakirby5/codi.vim'
-    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'jeffkreeftmeijer/vim-dim'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'habamax/vim-polar'
     Plug 'lilydjwg/colorizer'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'peitalin/vim-jsx-typescript'
@@ -71,8 +73,8 @@
 "
     " display options
         " colorscheme
-        set background=light
-        colorscheme PaperColor
+        set background=dark
+        colorscheme nord
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
