@@ -1,7 +1,3 @@
-if [ -z "$XDG_CURRENT_DESKTOP" ]; then
-    export XDG_CURRENT_DESKTOP="sway"
-fi
-
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/.gem/ruby:$PATH"
 PATH="$HOME/.go/bin:$PATH"
@@ -26,8 +22,8 @@ export QT_QPA_PLATFORM
 # export QT_WAYLAND_DISABLE_WINDOWDECORATION
 _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_AWT_WM_NONREPARENTING
-MOZ_ENABLE_WAYLAND=1
-export MOZ_ENABLE_WAYLAND
+# MOZ_ENABLE_WAYLAND=1
+# export MOZ_ENABLE_WAYLAND
 NPM_PACKAGES="${HOME}/.npm-packages"
 export NPM_PACKAGES
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -35,6 +31,10 @@ export NODE_PATH
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPATH
+FLATPAK_GL_DRIVERS=mesa-git
+export FLATPAK_GL_DRIVERS
+RADV_PERFTEST=gpl
+export RADV_PERFTEST
 
 NVM_DIR="$HOME/.nvm"
 export NVM_DIR
