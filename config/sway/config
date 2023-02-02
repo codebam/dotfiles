@@ -49,15 +49,11 @@ set $laptop eDP-1
 # bindswitch --reload lid:off output $laptop enable
 
 # desktop monitor
-output DP-1 {
+output "Dell Inc. Dell AW3821DW #GTIYMxgwABhF" {
    mode 3840x1600@143.998Hz
    adaptive_sync on
    max_render_time 1
-}
-output DP-3 {
-   mode 3840x1600@143.998Hz
-   adaptive_sync on
-   max_render_time 1
+   subpixel none
 }
 
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -230,17 +226,27 @@ bar {
 #
 # User settings
 #
+
+input * {
+    events disabled
+}
+
+input "2131:256:Topre_Corporation_HHKB_Professional" {
+    events enabled
+}
+
 input "1739:0:Synaptics_TM3289-021" {
+    events enabled
     dwt enabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
     pointer_accel 0.2
-    accel_profile flat
+    accel_profile adaptive
 }
 
-# input "2:7:SynPS/2_Synaptics_TouchPad" {
-input "1739:0:Synaptics_TM3289-021" {
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    events enabled
     dwt enabled
     tap enabled
     natural_scroll enabled
@@ -250,30 +256,36 @@ input "1739:0:Synaptics_TM3289-021" {
 }
 
 input "2:10:TPPS/2_Elan_TrackPoint" {
+    events enabled
     pointer_accel 0.7
     accel_profile adaptive
 }
 
 input "1133:16466:Logitech_M545/M546" {
+    events enabled
     pointer_accel 0.8
 }
+
 input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+    events enabled
     accel_profile "flat"
     pointer_accel 0
 }
+
 # to get inputs use: swaymsg -t get_inputs
 
 exec {
-    gammastep -l $(cat ~/.config/latlong)
+    # gammastep -l $(cat ~/.config/latlong)
     mako
-    xrdb -load ~/.Xresources
+    # xrdb -load ~/.Xresources
     /usr/libexec/xdg-desktop-portal -r
     /usr/libexec/xdg-desktop-portal-wlr -r
     echo -e $(swaymsg -p -t get_outputs) > .sway_outputs
+    /usr/libexec/polkit-gnome-authentication-agent-1
 }
 
 exec_always {
-    systemctl --user import-environment; systemctl --user start sway-session.target
+    systemctl --user import-environment; systemctl --user start sway-session
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
@@ -305,8 +317,8 @@ bindsym --whole-window {
     $mod+Shift+button5 exec "light -U 1"
     # mouse wheel changes brightness
 
-    $mod+button4 exec "amixer set Master 1%+ unmute"
-    $mod+button5 exec "amixer set Master 1%- unmute"
+    $mod+button4 exec "amixer set Master 5%+ unmute"
+    $mod+button5 exec "amixer set Master 5%- unmute"
     # mouse wheel changes audio volume
 }
 
@@ -375,8 +387,8 @@ bindsym {
     # We just use 1-10 as the default.
 
     # $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
-    XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
-    XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
+    XF86AudioRaiseVolume exec "amixer set Master 5%+ unmute"
+    XF86AudioLowerVolume exec "amixer set Master 5%- unmute"
     XF86AudioMute exec "amixer set Master toggle"
     XF86AudioMicMute exec "amixer set Capture toggle"
     $mod+shift+u exec "toolbox run playerctl play-pause"
