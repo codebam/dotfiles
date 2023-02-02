@@ -119,7 +119,7 @@
 	},
 	"disk": {
 		"interval": 1,
-		"format": "Disk{percentage_used:2}%",
+		"format": "Disk {percentage_used:2}%",
 		"path": "/"
 	},
         "custom/disk_raid": {
