@@ -65,7 +65,7 @@ format_swap = "{swap_free:4}"
 [[block]]
 block = "cpu"
 interval = 0.1
-format = "{frequency:5}"
+format = "{barchart}"
 
 [[block]]
 block = "load"
