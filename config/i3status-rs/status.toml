@@ -1,5 +1,20 @@
 [theme]
-name = "bad-wolf"
+name = "slick"
+
+[theme.overrides]
+idle_bg = "#2e3440" # nord0
+idle_fg = "#81a1c1" # light blue
+info_bg = "#5e81ac" # dark blue
+info_fg = "#2e3440" # nord0
+good_bg = "#a3be86" # green
+good_fg = "#2e3440" # nord0
+warning_bg = "#ebcb8b" # yellow
+warning_fg = "#2e3440" # nord0
+critical_bg = "#bf616a" # red
+critical_fg = "#2e3440" # nord0
+separator = ""
+separator_bg = "auto"
+separator_fg = "auto"
 
 [icons]
 name = "awesome"
@@ -12,6 +27,26 @@ max_width = 21
 block = "disk_space"
 path = "/home"
 alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "disk_space"
+path = "/run/media/codebam/7d57a643-ac36-4e54-b873-0e19bd8a8645/"
+alias = "/nvme"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "disk_space"
+path = "/run/media/codebam/a4058013-b85c-4bf0-a187-b459a23267a9/"
+alias = "/raid"
 info_type = "available"
 unit = "GB"
 interval = 20
