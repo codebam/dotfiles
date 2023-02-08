@@ -83,7 +83,6 @@ step_width = 1
 
 [[block]]
 block = "net"
-format = "{speed_down:5} {speed_up:5}"
 
 [[block]]
 block = "time"
