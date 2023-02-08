@@ -309,8 +309,13 @@ seat seat0 xcursor_theme default
 # floating terminal
 # for_window [app_id="floating"] floating enable
 
-# prevent chrome in wayland from capturing keyboard
-for_window [app_id="^chrome-.*-.*$"] shortcuts_inhibitor disable
+for_window {
+    # prevent chrome in wayland from capturing keyboard
+    [app_id="^chrome-.*-.*$"] shortcuts_inhibitor disable
+
+    # show firefox file upload as floating window
+    [app_id="firefox" title="File Upload"] floating enable
+}
 
 bindsym --whole-window {
     $mod+Shift+button4 exec "light -A 1"
