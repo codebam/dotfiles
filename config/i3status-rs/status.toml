@@ -21,7 +21,7 @@ name = "awesome"
 
 [[block]]
 block = "focused_window"
-max_width = 21
+max_width = 100
 
 [[block]]
 block = "disk_space"
@@ -30,8 +30,9 @@ alias = "/"
 info_type = "available"
 unit = "GB"
 interval = 20
-warning = 20.0
+warning = 15.0
 alert = 10.0
+format = "{available:5}"
 
 [[block]]
 block = "disk_space"
@@ -40,8 +41,9 @@ alias = "/nvme"
 info_type = "available"
 unit = "GB"
 interval = 20
-warning = 20.0
+warning = 15.0
 alert = 10.0
+format = "{available:5}"
 
 [[block]]
 block = "disk_space"
@@ -50,26 +52,34 @@ alias = "/raid"
 info_type = "available"
 unit = "GB"
 interval = 20
-warning = 20.0
+warning = 15.0
 alert = 10.0
+format = "{available:5}"
 
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{MAg} GB"
-format_swap = "{SUm} MB"
+format_mem = "{mem_avail:5}"
+format_swap = "{swap_free:4}"
 
 [[block]]
 block = "cpu"
 interval = 1
+format = "{frequency:5}"
 
 [[block]]
 block = "load"
 interval = 1
-format = " {1m} {5m} {15m}"
+format = " {1m:4} {5m:4} {15m:4}"
 
 [[block]]
 block = "sound"
+driver = "pulseaudio"
+step_width = 1
+
+[[block]]
+block = "net"
+format = ""
 
 [[block]]
 block = "time"
