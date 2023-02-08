@@ -396,7 +396,7 @@ bindsym {
     XF86AudioLowerVolume exec "amixer set Master 5%- unmute"
     XF86AudioMute exec "amixer set Master toggle"
     XF86AudioMicMute exec "amixer set Capture toggle"
-    $mod+shift+u exec "toolbox run playerctl play-pause"
+    $mod+shift+u exec "playerctl play-pause"
     XF86MonBrightnessUp exec "light -A 1"
     XF86MonBrightnessDown exec "light -U 1"
     $mod+n exec 'swaymsg "bar mode toggle"'
