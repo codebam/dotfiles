@@ -5,7 +5,7 @@ source ~/.profile
 # aliases
 alias ls="ls --color=auto"
 alias c=clear
-alias sway="systemctl --user restart sway-session"
+# alias sway="systemctl --user restart sway-session"
 alias swaylog="journalctl --user -f --no-tail -u sway-session"
 
 PS1="\${PWD} "
