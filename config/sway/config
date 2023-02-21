@@ -282,6 +282,9 @@ exec {
     /usr/libexec/xdg-desktop-portal-wlr -r
     echo -e $(swaymsg -p -t get_outputs) > .sway_outputs
     /usr/libexec/polkit-gnome-authentication-agent-1
+    gio mount -d /dev/sdb1; gio mount -d /dev/nvme1n1p1
+    /usr/libexec/sway-systemd/session.sh --with-cleanup
+    /usr/libexec/sway-systemd/assign-cgroups.py
 }
 
 exec_always {
