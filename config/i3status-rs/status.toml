@@ -67,11 +67,6 @@ format_mem = "{mem_avail:5}"
 format_swap = "{swap_free:4}"
 
 [[block]]
-block = "cpu"
-interval = 0.1
-format = "{barchart}"
-
-[[block]]
 block = "load"
 interval = 0.1
 format = "{1m:4} {5m:4} {15m:4}"
@@ -86,4 +81,4 @@ block = "net"
 
 [[block]]
 block = "time"
-format = "%a %d/%m %R"
+format = "%m/%d %R"
