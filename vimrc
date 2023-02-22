@@ -36,6 +36,7 @@
     set undofile
     set undodir=$HOME/.vim/undodir
     set tags=./tags;,tags;
+    set scrolloff=0
 
     "
 
