@@ -58,6 +58,7 @@
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'cespare/vim-toml'
     Plug 'tomlion/vim-solidity'
@@ -94,11 +95,11 @@
         noremap <C-h> :History<CR>
         noremap <C-b> :Buffers<CR>
         noremap <Leader><space> :nohlsearch<CR>
-        noremap <M-j> :tabprevious<CR>
-        noremap <M-k> :tabnext<CR>
+        noremap <M-j> :bp<CR>
+        noremap <M-k> :bn<CR>
         noremap 0 ^
         noremap ^ 0
-        inoremap <silent><expr> <TAB>
+        inoremap <silent><expr> <C-p>
                     \ coc#pum#visible() ? coc#pum#next(1) :
                     \ CheckBackspace() ? "\<Tab>" :
                     \ coc#refresh()
@@ -108,8 +109,6 @@
             let col = col('.') - 1
             return !col || getline('.')[col - 1]  =~# '\s'
         endfunction
-
-        let g:coc_snippet_next = '<tab>'
     "
 "
     " plugin options

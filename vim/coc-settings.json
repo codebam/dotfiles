@@ -11,5 +11,6 @@
     ],
     "tsserver.formatOnType": true,
     "coc.preferences.formatOnType": true,
-    "svelte.enable-ts-plugin": true
+    "svelte.enable-ts-plugin": true,
+    "suggest.autoTrigger": "none"
 }
