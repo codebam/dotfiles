@@ -73,7 +73,6 @@
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'folke/todo-comments.nvim'
-    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'leafOfTree/vim-svelte-plugin'
     call plug#end()
@@ -95,6 +94,8 @@
         noremap <C-p> :Files<CR>
         noremap <C-h> :History<CR>
         noremap <C-b> :Buffers<CR>
+        noremap <C-s> :CocList snippets<CR>
+        noremap <M-s> :CocCommand snippets.editSnippets<CR>
         noremap <Leader><space> :nohlsearch<CR>
         noremap <M-j> :bp<CR>
         noremap <M-k> :bn<CR>
