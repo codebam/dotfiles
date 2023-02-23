@@ -93,6 +93,7 @@ output "Dell Inc. Dell AW3821DW #GTIYMxgwABhF" {
 #
     # start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+Tab exec $term
 
     # kill focused window
     bindsym $mod+Shift+q kill
