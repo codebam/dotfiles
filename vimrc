@@ -58,10 +58,10 @@
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'cespare/vim-toml'
-    Plug 'tomlion/vim-solidity'
+    Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-startify'
@@ -73,6 +73,7 @@
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'folke/todo-comments.nvim'
+    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'leafOfTree/vim-svelte-plugin'
     call plug#end()
