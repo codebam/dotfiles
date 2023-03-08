@@ -6,7 +6,7 @@ Wants=graphical-session-pre.target
 After=graphical-session-pre.target
 
 [Service]
-ExecStart=/usr/bin/dbus-run-session /usr/bin/sway
+ExecStart=/usr/bin/sway
 ManagedOOMPreference=omit
 
 [Install]
