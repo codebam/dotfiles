@@ -276,6 +276,7 @@ input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 # to get inputs use: swaymsg -t get_inputs
 
 exec {
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     # gammastep -l $(cat ~/.config/latlong)
     mako
     # xrdb -load ~/.Xresources
@@ -283,13 +284,12 @@ exec {
     /usr/libexec/xdg-desktop-portal-wlr -r
     echo -e $(swaymsg -p -t get_outputs) > .sway_outputs
     /usr/libexec/polkit-gnome-authentication-agent-1
-    gio mount -d /dev/sdb1; gio mount -d /dev/nvme1n1p1
     /usr/libexec/sway-systemd/session.sh --with-cleanup
     /usr/libexec/sway-systemd/assign-cgroups.py
+    udisksctl mount -b /dev/sdb1
 }
 
 exec_always {
-    systemctl --user import-environment; systemctl --user start sway-session
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
@@ -304,7 +304,7 @@ focus_follows_mouse no
 gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
-seat seat0 hide_cursor 1000
+seat seat0 hide_cursor 0
 default_orientation horizontal
 
 # load the configured cursor theme, change with lxappearance
