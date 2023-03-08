@@ -2,6 +2,8 @@
 
 source ~/.profile
 
+export HISTSIZE=5000
+
 # aliases
 alias ls="ls --color=auto"
 alias c=clear
