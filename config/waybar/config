@@ -21,6 +21,13 @@
 		"battery"
 	],
 
+	"custom/pipewire": {
+		"tooltip": "false",
+		"max-length": 6,
+		"signal": 8,
+		"restart-interval": 0,
+		"exec": "$HOME/.local/bin/pipewire-waybar",
+        },
 	"custom/left-arrow-dark": {
 		"format": "",
 		"tooltip": false
