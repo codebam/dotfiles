@@ -1,6 +1,5 @@
 [theme]
-name = "slick"
-
+theme = "slick"
 [theme.overrides]
 idle_bg = "#2e3440" # nord0
 idle_fg = "#81a1c1" # light blue
@@ -17,7 +16,7 @@ separator_bg = "auto"
 separator_fg = "auto"
 
 [icons]
-name = "awesome"
+icons = "awesome4"
 
 [icons.overrides]
 net_up = "U"
@@ -25,51 +24,18 @@ net_down = "D"
 
 [[block]]
 block = "focused_window"
-max_width = 100
-
-[[block]]
-block = "disk_space"
-path = "/home"
-alias = "/"
-info_type = "available"
-unit = "GB"
-interval = 20
-warning = 15.0
-alert = 10.0
-format = "{available:5}"
-
-[[block]]
-block = "disk_space"
-path = "/run/media/codebam/7d57a643-ac36-4e54-b873-0e19bd8a8645/"
-alias = "/nvme"
-info_type = "available"
-unit = "GB"
-interval = 20
-warning = 15.0
-alert = 10.0
-format = "{available:5}"
-
-[[block]]
-block = "disk_space"
-path = "/run/media/codebam/a4058013-b85c-4bf0-a187-b459a23267a9/"
-alias = "/raid"
-info_type = "available"
-unit = "GB"
-interval = 20
-warning = 15.0
-alert = 10.0
-format = "{available:5}"
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_avail:5}"
-format_swap = "{swap_free:4}"
+format = " $icon $mem_used_percents.eng(w:1) "
+format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:Mi)/$swap_total.eng(w:3,u:B,p:Mi)($swap_used_percents.eng(w:2)) "
+interval = 30
+warning_mem = 70
+critical_mem = 90
 
 [[block]]
 block = "load"
 interval = 0.1
-format = "{1m:4} {5m:4} {15m:4}"
 
 [[block]]
 block = "sound"
@@ -81,4 +47,9 @@ block = "net"
 
 [[block]]
 block = "time"
-format = "%m/%d %R"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "

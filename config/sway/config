@@ -203,7 +203,7 @@ bar {
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
     font pango:Fira Sans, FontAwesome 11
-    status_command killall i3status-rs; distrobox enter alpine-edge -- ~/.cargo/bin/i3status-rs ~/.config/i3status-rs/status.toml
+    status_command killall i3status-rs; distrobox enter alpine-edge -- i3status-rs ~/.config/i3status-rs/status.toml
     hidden_state hide
     tray_output none
     strip_workspace_numbers yes
