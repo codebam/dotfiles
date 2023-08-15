@@ -79,3 +79,4 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 
 source $HOME/.fzfrc
 # source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
