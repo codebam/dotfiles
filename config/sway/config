@@ -28,7 +28,7 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg /var/home/codebam/Pictures/Wallpapers/warren-wong-AblsCy-4oAs-unsplash.jpg fill
+output * bg /var/home/codebam/Pictures/Wallpapers/wallpaper.jpg fill
 #
 # output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
 #
@@ -36,7 +36,7 @@ output * bg /var/home/codebam/Pictures/Wallpapers/warren-wong-AblsCy-4oAs-unspla
 #
 
 output eDP-1 {
-    scale 1.5
+    scale 1
 }
 
 # output DP-1 {
@@ -351,10 +351,14 @@ seat seat0 xcursor_theme default
 bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
 bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
 
-bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer set Master 1%- unmute"
-bindsym XF86AudioMute exec "amixer set Master toggle"
-bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+#To raise the volume
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
+#To lower the volume
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
+#To mute/unmute the volume
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+#To mute/unmute the microphone
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 bindsym $mod+u exec "toolbox run playerctl play-pause"
 
@@ -375,7 +379,7 @@ bindsym $mod+shift+p exec "swaylock & systemctl suspend"
 bindsym $mod+x exec "~/.local/bin/screenshot-select"
 bindsym $mod+shift+x exec "~/.local/bin/screenshot"
 bindsym Control+space exec "makoctl dismiss"
-bindsym $mod+Control+space exec "makoctl invoke"
+bindsym $mod+Control+space exec "makoctl restore"
 bindsym $mod+o exec "~/.local/bin/pass-rofi"
 bindsym $mod+y exec "~/.local/bin/mpvyt-rofi"
 bindsym $mod+Ctrl+Print exec wf-recorder -a -f rtmp://live-yto.twitch.tv/app/live_100607192_Y8CdRUQxGbTLCi6j6Uja4c8nowC8Cb -c h264_vaapi -d /dev/dri/renderD128 -t
