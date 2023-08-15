@@ -9,20 +9,23 @@ include /etc/sway/config.d/*
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
-set $alt Mod1
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term foot
-font pango:Fira Code, FontAwesome 9
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-# set $menu dmenu_path | rofi -show drun | xargs swaymsg exec
-set $menu dmenu_path | wofi | xargs swaymsg exec
+set {
+    $mod Mod4
+    $alt Mod1
+    # Home row direction keys, like vim
+    $left h
+    $down j
+    $up k
+    $right l
+    # Your preferred terminal emulator
+    $term foot
+    $font pango:Fira Code, FontAwesome 9
+    # Your preferred application launcher
+    # Note: it's recommended that you pass the final command to sway
+    # $menu dmenu_path | rofi -show drun | xargs swaymsg exec
+    $menu dmenu_path | wofi | xargs swaymsg exec
+    $gnome-schema org.gnome.desktop.interface
+}
 
 ### Output configuration
 #
@@ -30,33 +33,28 @@ set $menu dmenu_path | wofi | xargs swaymsg exec
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 output * bg /var/home/codebam/Pictures/Wallpapers/wallpaper.jpg fill
 #
-# output * bg ~/Pictures/Wallpapers/g2gzbl8wjqi51.jpg fill
-#
 # Example configuration:
 #
 
+# laptop display
 output eDP-1 {
     scale 1
 }
-
-# output DP-1 {
-#     resolution 2560x1440
-#     # transform 270
-# }
-
-# output HDMI-A-1 {
-#     # resolution 1920x1080
-#     resolution 2560x1440
-#     # position 1440 0 # don't uncomment this
-#     # transform 270
-# }
 
 # disable the laptop display when the lid closes
 set $laptop eDP-1
 # bindswitch --reload lid:on output $laptop disable
 # bindswitch --reload lid:off output $laptop enable
 
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+# desktop monitor
+output "Dell Inc. Dell AW3821DW #GTIYMxgwABhF" {
+   mode 3840x1600@143.998Hz
+   adaptive_sync on
+   max_render_time 1
+   subpixel none
+}
+
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
 # output HDMI-A-1 pos 0 0 res 1920x1080
 # output HDMI-A-1 pos 0 0 res 2560x1440
 #
@@ -93,6 +91,7 @@ set $laptop eDP-1
 #
     # start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+Tab exec $term
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -114,6 +113,7 @@ set $laptop eDP-1
     # exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+e exec swaymsg exit
+    # bindsym $mod+Shift+e exec systemctl --user stop sway-session
 #
 # Moving around:
 #
@@ -141,79 +141,19 @@ set $laptop eDP-1
 #
 # Workspaces:
 #
-    set $ws1 1
-    set $ws2 2
-    set $ws3 3
-    set $ws4 4
-    set $ws5 5
-    set $ws6 6
-    set $ws7 7
-    set $ws8 8
-    set $ws9 9
-    set $ws10 10
+set {
+    $ws1 1
+    $ws2 2
+    $ws3 3
+    $ws4 4
+    $ws5 5
+    $ws6 6
+    $ws7 7
+    $ws8 8
+    $ws9 9
+    $ws10 10
+}
 
-    # switch to workspace
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws10
-    # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1
-    bindsym $mod+Shift+2 move container to workspace $ws2
-    bindsym $mod+Shift+3 move container to workspace $ws3
-    bindsym $mod+Shift+4 move container to workspace $ws4
-    bindsym $mod+Shift+5 move container to workspace $ws5
-    bindsym $mod+Shift+6 move container to workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7
-    bindsym $mod+Shift+8 move container to workspace $ws8
-    bindsym $mod+Shift+9 move container to workspace $ws9
-    bindsym $mod+Shift+0 move container to workspace $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-    # disabled because I want this for dismissing notifications
-
-    # move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -222,20 +162,22 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 100px
-    bindsym $down resize grow height 100px
-    bindsym $up resize shrink height 100px
-    bindsym $right resize grow width 100px
+    bindsym {
+    $left resize shrink width 100px
+    $down resize grow height 100px
+    $up resize shrink height 100px
+    $right resize grow width 100px
 
     # ditto, with arrow keys
-    bindsym Left resize shrink width 100px
-    bindsym Down resize grow height 100px
-    bindsym Up resize shrink height 100px
-    bindsym Right resize grow width 100px
+    Left resize shrink width 100px
+    Down resize grow height 100px
+    Up resize shrink height 100px
+    Right resize grow width 100px
 
     # return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    Return mode "default"
+    Escape mode "default"
+    }
 }
 bindsym $mod+r mode "resize"
 
@@ -254,14 +196,14 @@ client.background       $base07
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    swaybar_command waybar
+    # swaybar_command waybar
     position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    font pango:Fira Sans, FontAwesome 13
-    status_command i3status-rs ~/.config/sway/status.toml
+    font pango:Fira Sans, FontAwesome 11
+    status_command killall i3status-rs; distrobox enter alpine-edge -- ~/.cargo/bin/i3status-rs ~/.config/i3status-rs/status.toml
     hidden_state hide
     tray_output none
     strip_workspace_numbers yes
@@ -283,17 +225,27 @@ bar {
 #
 # User settings
 #
+
+# input * {
+#     events disabled
+# }
+
+input "2131:256:Topre_Corporation_HHKB_Professional" {
+    events enabled
+}
+
 input "1739:0:Synaptics_TM3289-021" {
+    events enabled
     dwt enabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
     pointer_accel 0.2
-    accel_profile flat
+    accel_profile adaptive
 }
 
-# input "2:7:SynPS/2_Synaptics_TouchPad" {
-input "1739:0:Synaptics_TM3289-021" {
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    events enabled
     dwt enabled
     tap enabled
     natural_scroll enabled
@@ -303,26 +255,37 @@ input "1739:0:Synaptics_TM3289-021" {
 }
 
 input "2:10:TPPS/2_Elan_TrackPoint" {
+    events enabled
     pointer_accel 0.7
     accel_profile adaptive
 }
 
 input "1133:16466:Logitech_M545/M546" {
+    events enabled
     pointer_accel 0.8
 }
+
 input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+    events enabled
     accel_profile "flat"
     pointer_accel 0
 }
+
 # to get inputs use: swaymsg -t get_inputs
 
-exec gammastep -l $(cat ~/.config/latlong)
-exec mako
-exec xrdb -load ~/.Xresources
-exec /usr/libexec/xdg-desktop-portal -r
-exec /usr/libexec/xdg-desktop-portal-wlr -r
-
-set $gnome-schema org.gnome.desktop.interface
+exec {
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    # gammastep -l $(cat ~/.config/latlong)
+    mako
+    # xrdb -load ~/.Xresources
+    /usr/libexec/xdg-desktop-portal -r
+    /usr/libexec/xdg-desktop-portal-wlr -r
+    echo -e $(swaymsg -p -t get_outputs) > .sway_outputs
+    /usr/libexec/polkit-gnome-authentication-agent-1
+    /usr/libexec/sway-systemd/session.sh --with-cleanup
+    /usr/libexec/sway-systemd/assign-cgroups.py
+    udisksctl mount -b /dev/sdb1
+}
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
@@ -339,17 +302,14 @@ focus_follows_mouse no
 gaps inner 15px
 smart_gaps on
 hide_edge_borders smart
-# seat seat0 hide_cursor 1000
-default_orientation vertical
+seat seat0 hide_cursor 0
+default_orientation horizontal
 
 # load the configured cursor theme, change with lxappearance
 seat seat0 xcursor_theme default
 
 # floating terminal
 # for_window [app_id="floating"] floating enable
-# bindsym $mod+i exec '$term & swaymsg "for_window [pid=${!}] floating enable"'
-bindsym $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
-bindsym $mod+Shift+d exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $menu'
 
 #To raise the volume
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
@@ -359,18 +319,23 @@ bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 #To mute/unmute the microphone
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+for_window {
+    # prevent chrome in wayland from capturing keyboard
+    [app_id="^chrome-.*-.*$"] shortcuts_inhibitor disable
 
-bindsym $mod+u exec "toolbox run playerctl play-pause"
+    # show firefox file upload as floating window
+    [app_id="firefox" title="File Upload"] floating enable
+}
 
-bindsym XF86MonBrightnessUp exec "light -A 1"
-bindsym XF86MonBrightnessDown exec "light -U 1"
-bindsym --whole-window $mod+Shift+button4 exec "light -A 1"
-bindsym --whole-window $mod+Shift+button5 exec "light -U 1"
-# mouse wheel changes brightness
+bindsym --whole-window {
+    $mod+Shift+button4 exec "light -A 1"
+    $mod+Shift+button5 exec "light -U 1"
+    # mouse wheel changes brightness
 
-bindsym --whole-window $mod+button4 exec "amixer set Master 1%+ unmute"
-bindsym --whole-window $mod+button5 exec "amixer set Master 1%- unmute"
-# mouse wheel changes audio volume
+    $mod+button4 exec "amixer set Master 1%+ unmute"
+    $mod+button5 exec "amixer set Master 1%- unmute"
+    # mouse wheel changes audio volume
+}
 
 bindsym $mod+n exec 'swaymsg "bar mode toggle"'
 # bindsym $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
@@ -387,3 +352,76 @@ bindsym Ctrl+Print exec wf-recorder -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mk
 bindsym Ctrl+Shift+Print exec wf-recorder -g "$$(slurp)" -f ~/recording_$(date +"%Y-%m-%d_%H:%M:%S.mkv") -c h264_vaapi -d /dev/dri/renderD128 -t
 bindsym Ctrl+Shift+BackSpace exec killall -s SIGINT wf-recorder
 bindsym $mod+c exec killall -SIGUSR1 waybar
+bindsym {
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    $mod+b splith
+    $mod+v splitv
+
+    # Switch the current container between different layout styles
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    $mod+space focus mode_toggle
+    # disabled because I want this for dismissing notifications
+
+    # move focus to the parent container
+    $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    $mod+minus scratchpad show
+    # switch to workspace
+    $mod+1 workspace $ws1
+    $mod+2 workspace $ws2
+    $mod+3 workspace $ws3
+    $mod+4 workspace $ws4
+    $mod+5 workspace $ws5
+    $mod+6 workspace $ws6
+    $mod+7 workspace $ws7
+    $mod+8 workspace $ws8
+    $mod+9 workspace $ws9
+    $mod+0 workspace $ws10
+    # move focused container to workspace
+    $mod+Shift+1 move container to workspace $ws1
+    $mod+Shift+2 move container to workspace $ws2
+    $mod+Shift+3 move container to workspace $ws3
+    $mod+Shift+4 move container to workspace $ws4
+    $mod+Shift+5 move container to workspace $ws5
+    $mod+Shift+6 move container to workspace $ws6
+    $mod+Shift+7 move container to workspace $ws7
+    $mod+Shift+8 move container to workspace $ws8
+    $mod+Shift+9 move container to workspace $ws9
+    $mod+Shift+0 move container to workspace $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+    # $mod+i exec 'swaymsg "for_window [pid=${$}] floating enable" & exec $term'
+    $mod+shift+u exec "playerctl play-pause"
+    XF86MonBrightnessUp exec "light -A 1"
+    XF86MonBrightnessDown exec "light -U 1"
+    # $mod+p exec "sleep 0.2 & killall -SIGUSR1 swayidle"
+    # $mod+c exec killall -SIGUSR1 waybar
+}
+
+# xwayland disable

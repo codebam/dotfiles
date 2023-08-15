@@ -1,0 +1,11 @@
+[Unit]
+Description=foldingathome
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/bin/toolbox run -r 37 /bin/FAHClient
+
+[Install]
+WantedBy=default.target

@@ -28,12 +28,17 @@
     set nofoldenable
     set autochdir
     set hidden
+    set incsearch
+    set hlsearch
     set showmatch
     set matchtime=3
     set textwidth=80
     set undofile
     set undodir=$HOME/.vim/undodir
     set tags=./tags;,tags;
+    set scrolloff=0
+    set fillchars+=vert:\▏
+
     "
 
     " autocmds
@@ -41,6 +46,7 @@
     autocmd FileType html setlocal shiftwidth=2 tabstop=2
     autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
     autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+    autocmd FileType svelte setlocal shiftwidth=2 tabstop=2
     "
 
     " plug
@@ -52,20 +58,23 @@
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'cespare/vim-toml'
-    Plug 'tomlion/vim-solidity'
+    Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-startify'
     Plug 'metakirby5/codi.vim'
+    Plug 'jeffkreeftmeijer/vim-dim'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'habamax/vim-polar'
     Plug 'lilydjwg/colorizer'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'folke/todo-comments.nvim'
     Plug 'honza/vim-snippets'
-    Plug 'evanleck/vim-svelte'
+    Plug 'leafOfTree/vim-svelte-plugin'
     call plug#end()
 "
     " display options
@@ -73,6 +82,7 @@
         set background=dark
         colorscheme nord
         set fillchars+=vert:│
+
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
@@ -85,9 +95,11 @@
         noremap <C-p> :Files<CR>
         noremap <C-h> :History<CR>
         noremap <C-b> :Buffers<CR>
+        noremap <C-s> :CocList snippets<CR>
+        noremap <M-s> :CocCommand snippets.editSnippets<CR>
         noremap <Leader><space> :nohlsearch<CR>
-        noremap <M-j> :tabprevious<CR>
-        noremap <M-k> :tabnext<CR>
+        noremap <M-j> :bp<CR>
+        noremap <M-k> :bn<CR>
         noremap 0 ^
         noremap ^ 0
         inoremap <silent><expr> <TAB>
@@ -118,13 +130,6 @@
         let g:netrw_altv = 1
         let g:netrw_winsize = 20
     "
-        " omnisharp
-        let g:OmniSharp_timeout = 5
-        let g:OmniSharp_server_use_mono = 1
-        let g:OmniSharp_highlight_types = 1
-        let g:OmniSharp_selector_ui = 'fzf'
-    "
-
         " coc.vim
         let g:coc_disable_startup_warning = 1
         let g:coc_global_extensions = [
@@ -138,6 +143,7 @@
               \ 'coc-html',
               \ 'coc-tailwindcss',
               \ 'coc-snippets',
+              \ 'coc-svelte',
           \ ]
     "
 

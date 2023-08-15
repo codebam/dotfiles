@@ -2,6 +2,7 @@
     "eslint.autoFixOnSave": true,
     "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
     "prettier.disableSuccessMessage": true,
+    "prettier.useTabs": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "javascript",
         "javascriptreact",
@@ -15,5 +16,6 @@
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,
     "svelte.enable-ts-plugin": true,
     "diagnostic.virtualText": true,
-    "diagnostic.virtualTextCurrentLineOnly": false
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "suggest.autoTrigger": "none"
 }
