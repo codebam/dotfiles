@@ -6,8 +6,14 @@
         "javascript",
         "javascriptreact",
         "typescript",
-        "typescriptreact"
+        "typescriptreact",
+        "rust"
     ],
     "tsserver.formatOnType": true,
-    "coc.preferences.formatOnType": true
+    "coc.preferences.formatOnType": true,
+    "snippets.ultisnips.pythonPrompt": false,
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+    "svelte.enable-ts-plugin": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false
 }

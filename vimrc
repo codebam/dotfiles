@@ -65,12 +65,14 @@
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'folke/todo-comments.nvim'
     Plug 'honza/vim-snippets'
+    Plug 'evanleck/vim-svelte'
     call plug#end()
 "
     " display options
         " colorscheme
         set background=dark
         colorscheme nord
+        set fillchars+=vert:│
     "
             " gitgutter
             let g:gitgutter_override_sign_column_highlight = 0
@@ -89,15 +91,21 @@
         noremap 0 ^
         noremap ^ 0
         inoremap <silent><expr> <TAB>
-                    \ pumvisible() ? coc#_select_confirm() :
-                    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-                    \ <SID>check_back_space() ? "\<TAB>" :
-                    \ coc#refresh()
+          \ coc#pum#visible() ? coc#pum#next(1) :
+          \ CheckBackspace() ? "\<Tab>" :
+          \ coc#refresh()
+        inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-        function! s:check_back_space() abort
-            let col = col('.') - 1
-            return !col || getline('.')[col - 1]  =~# '\s'
+        " Make <CR> to accept selected completion item or notify coc.nvim to format
+        " <C-g>u breaks current undo, please make your own choice
+        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                                      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+        function! CheckBackspace() abort
+          let col = col('.') - 1
+          return !col || getline('.')[col - 1]  =~# '\s'
         endfunction
+
 
         let g:coc_snippet_next = '<tab>'
     "
@@ -121,11 +129,11 @@
         let g:coc_disable_startup_warning = 1
         let g:coc_global_extensions = [
               \ 'coc-tsserver',
+              \ 'coc-rust-analyzer',
               \ 'coc-prettier',
               \ 'coc-eslint',
               \ 'coc-texlab',
               \ 'coc-go',
-              \ 'coc-rls',
               \ 'coc-json',
               \ 'coc-html',
               \ 'coc-tailwindcss',
