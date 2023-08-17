@@ -24,6 +24,7 @@ net_down = "D"
 
 [[block]]
 block = "focused_window"
+format = "$title.str(max_w:64)"
 
 [[block]]
 block = "memory"
