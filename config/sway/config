@@ -226,11 +226,15 @@ bar {
 # User settings
 #
 
-# input * {
-#     events disabled
-# }
+input * {
+    events disabled
+}
 
 input "2131:256:Topre_Corporation_HHKB_Professional" {
+    events enabled
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
     events enabled
 }
 
