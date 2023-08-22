@@ -80,3 +80,5 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 source $HOME/.fzfrc
 # source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
+. "$HOME/git/nord-tty/nord-tty"
+2>/dev/null 1>/dev/null setfont -d
