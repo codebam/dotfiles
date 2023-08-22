@@ -18,7 +18,7 @@ set {
     $up k
     $right l
     # Your preferred terminal emulator
-    $term foot
+    $term kitty
     $font pango:Fira Code, FontAwesome 9
     # Your preferred application launcher
     # Note: it's recommended that you pass the final command to sway
