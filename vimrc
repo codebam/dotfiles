@@ -37,7 +37,7 @@
     set undodir=$HOME/.vim/undodir
     set tags=./tags;,tags;
     set scrolloff=0
-    set fillchars+=vert:\▏
+    " set fillchars+=vert:\Ã¢ÂÂ
 
     "
 
@@ -139,11 +139,13 @@
               \ 'coc-eslint',
               \ 'coc-texlab',
               \ 'coc-go',
+              \ 'coc-rust-analyzer',
               \ 'coc-json',
               \ 'coc-html',
               \ 'coc-tailwindcss',
               \ 'coc-snippets',
               \ 'coc-svelte',
+              \ 'coc-python',
           \ ]
     "
 
