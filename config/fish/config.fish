@@ -1,1 +1,1 @@
-fenv source ~/.profile
+#fenv source ~/.profile

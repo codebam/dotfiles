@@ -12,7 +12,7 @@ fi
 # export PS1="\W 😎💻 "
 # export PS1="\W "
 export PS1="\${PWD} "
-export FLATPAK_GL_DRIVERS=mesa-git
+#export FLATPAK_GL_DRIVERS=mesa-git
 export RADV_PERFTEST=gpl
 export WLR_RENDERER=vulkan
 
@@ -26,7 +26,7 @@ export HISTFILESIZE=
 # User specific aliases and functions
 # alias gpg="gpg2"
 alias e=$EDITOR
-alias y="yarn"
+alias n="npm"
 alias g="git"
 alias gb="git branch"
 alias gc="git checkout"
@@ -34,12 +34,14 @@ alias gl="git log"
 alias gr="git reset"
 
 alias gpg_symmetric_enc="gpg --symmetric --cipher-algo AES256"
-alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam'
-alias reddit="ttrv"
 alias wudo="python3 $HOME/git/wsl-sudo/wsl-sudo.py"
 
 limit() {
     trickle -d 2500 -u 625 $1 &
+}
+
+command_not_found_handle() {
+    node $(which ai.mjs) "$@"
 }
 
 export NVM_DIR="$HOME/.nvm"
@@ -80,5 +82,5 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 source $HOME/.fzfrc
 # source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
-. "$HOME/git/nord-tty/nord-tty"
+# . "$HOME/git/nord-tty/nord-tty"
 2>/dev/null 1>/dev/null setfont -d

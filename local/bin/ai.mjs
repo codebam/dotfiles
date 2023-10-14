@@ -28,8 +28,9 @@ const llama2 = async (prompt) => {
 	return result;
 };
 
-if (process.argv[2]) {
+if (process.argv[1]) {
 	const line = process.argv.slice(2).join(" ");
+	console.log(line);
 	console.log(await llama2(line));
 } else {
 	rl.setPrompt(">>> ");
